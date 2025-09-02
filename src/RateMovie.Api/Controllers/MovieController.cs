@@ -13,5 +13,12 @@ namespace RateMovie.Api.Controllers
         {
             return Ok(new { Message = "Hello"});
         }
+
+        [HttpPost]
+        public IActionResult Post() 
+        {
+
+            return Created("", new {Message = "Done"});
+        }
     }
 }
