@@ -1,10 +1,10 @@
 ﻿using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
 
-namespace RateMovie.Application.UseCases.Movie.Register
+namespace RateMovie.Application.UseCases.Movies.Register
 {
     public interface IMovieUseCaseRegister
     {
-        ResponseMovieJson Execute(RequestMovieJson req);
+        Task<ResponseMovieJson> Execute(RequestMovieJson req);
     }
 }

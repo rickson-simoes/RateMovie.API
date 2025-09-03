@@ -22,6 +22,7 @@ namespace RateMovie.Api
                 .AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);
 
             // Dependency Injection
+            //builder.Configuration.GetConnectionString("ConnectionDBMySql");
             builder.Services.DependencyInjectionExtensionApp();
 
 

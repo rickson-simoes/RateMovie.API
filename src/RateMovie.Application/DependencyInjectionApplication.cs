@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using RateMovie.Application.UseCases.Movie.Register;
+using RateMovie.Application.UseCases.Movies.Register;
 
 namespace RateMovie.Application
 {

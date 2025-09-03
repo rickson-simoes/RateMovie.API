@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RateMovie.Application.UseCases.Movie.Register;
+using RateMovie.Application.UseCases.Movies.Register;
 using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
 
@@ -18,11 +18,11 @@ namespace RateMovie.Api.Controllers
 
         [HttpPost]
         [ProducesResponseType<ResponseMovieJson>(StatusCodes.Status201Created)]
-        public IActionResult Register(
+        public async Task<IActionResult> Register(
             [FromServices] IMovieUseCaseRegister MovieUseCase, 
             [FromBody] RequestMovieJson req)
         {
-            var response = MovieUseCase.Execute(req);
+            var response = await MovieUseCase.Execute(req);
 
             return Created("", response);
         }
