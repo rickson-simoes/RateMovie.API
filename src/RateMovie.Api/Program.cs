@@ -1,4 +1,6 @@
 
+using RateMovie.Application;
+
 namespace RateMovie.Api
 {
     public class Program
@@ -14,10 +16,13 @@ namespace RateMovie.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            //RateMovie Configs
+            // RateMovie Configs
             builder.Services
                 .AddControllers()
                 .AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);
+
+            // Dependency Injection
+            builder.Services.DependencyInjectionExtensionApp();
 
 
             var app = builder.Build();

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
+using RateMovie.Application.UseCases.Movie.Register;
+using RateMovie.Communication.Requests;
+using RateMovie.Communication.Responses;
 
 namespace RateMovie.Api.Controllers
 {
@@ -15,10 +17,14 @@ namespace RateMovie.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post() 
+        [ProducesResponseType<ResponseMovieJson>(StatusCodes.Status201Created)]
+        public IActionResult Register(
+            [FromServices] IMovieUseCaseRegister MovieUseCase, 
+            [FromBody] RequestMovieJson req)
         {
+            var response = MovieUseCase.Execute(req);
 
-            return Created("", new {Message = "Done"});
+            return Created("", response);
         }
     }
 }
