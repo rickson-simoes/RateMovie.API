@@ -3,8 +3,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using RateMovie.Domain.Repositories.Movies;
+using RateMovie.Domain.Repositories.UnitOfWork;
 using RateMovie.Infraestructure.DataAccess;
 using RateMovie.Infraestructure.Repositories.Movies;
+using RateMovie.Infraestructure.UnitOfWork;
 
 namespace RateMovie.Infraestructure
 {
@@ -18,6 +20,7 @@ namespace RateMovie.Infraestructure
 
         public static void DependencyInjectionScoped(IServiceCollection service)
         {
+            service.AddScoped<IUnitOfWorkRepository, UnitOfWorkRepository>();
             service.AddScoped<IMovieWriteOnlyRepository, MovieWriteOnlyRepository>();
             service.AddScoped<IMovieReadOnlyRepository, MovieReadOnlyRepository>();
         }
