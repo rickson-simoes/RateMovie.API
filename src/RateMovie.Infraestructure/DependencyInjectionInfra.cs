@@ -19,6 +19,7 @@ namespace RateMovie.Infraestructure
         public static void DependencyInjectionScoped(IServiceCollection service)
         {
             service.AddScoped<IMovieWriteOnlyRepository, MovieWriteOnlyRepository>();
+            service.AddScoped<IMovieReadOnlyRepository, MovieReadOnlyRepository>();
         }
 
         public static void DependencyInjectionDbContext(IServiceCollection service, IConfiguration config)

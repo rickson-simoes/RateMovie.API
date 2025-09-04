@@ -5,10 +5,10 @@ using RateMovie.Domain.Repositories.Movies;
 
 namespace RateMovie.Application.UseCases.Movies.Register
 {
-    internal class MovieUseCaseRegister : IMovieUseCaseRegister
+    internal class RegisterMovieUseCase : IRegisterMovieUseCase
     {
         private readonly IMovieWriteOnlyRepository _movieRepository;
-        public MovieUseCaseRegister(IMovieWriteOnlyRepository movieRepository)
+        public RegisterMovieUseCase(IMovieWriteOnlyRepository movieRepository)
         {
             _movieRepository = movieRepository;
         }
