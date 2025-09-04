@@ -12,9 +12,19 @@ namespace RateMovie.Infraestructure
     {
         public static void DependencyInjectionExtensionInfra(this IServiceCollection service, IConfiguration config)
         {
-            service.AddScoped<IMovieWriteOnlyRepository, MovieWriteOnlyRepository>();
+            DependencyInjectionDbContext(service, config);
+            DependencyInjectionScoped(service);
+        }
 
-            var mySqlVersion = new MySqlServerVersion(new Version(8, 0, 42));
+        public static void DependencyInjectionScoped(IServiceCollection service)
+        {
+            service.AddScoped<IMovieWriteOnlyRepository, MovieWriteOnlyRepository>();
+        }
+
+        public static void DependencyInjectionDbContext(IServiceCollection service, IConfiguration config)
+        {
+            var version = new Version(8, 0, 42);
+            var mySqlVersion = new MySqlServerVersion(version);
             var connectionString = config.GetConnectionString("ConnectionDBMySql");
 
             service.AddDbContext<RateMovieDBContext>(opt =>
