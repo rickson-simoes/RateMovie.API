@@ -1,5 +1,6 @@
 
 using RateMovie.Application;
+using RateMovie.Infraestructure;
 
 namespace RateMovie.Api
 {
@@ -9,26 +10,23 @@ namespace RateMovie.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // RateMovie Configs
+            // RateMovie Configs: Json without naming policy.
             builder.Services
                 .AddControllers()
                 .AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);
 
-            // Dependency Injection
-            //builder.Configuration.GetConnectionString("ConnectionDBMySql");
+            // Dependency Injection: Application layer
             builder.Services.DependencyInjectionExtensionApp();
+
+            // Dependency Injection: Infraestructure layer
+            builder.Services.DependencyInjectionExtensionInfra(builder.Configuration);
 
 
             var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -36,12 +34,8 @@ namespace RateMovie.Api
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
         }
     }

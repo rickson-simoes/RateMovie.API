@@ -1,16 +1,20 @@
 ﻿using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
-using RateMovie.Infraestructure.Repositories.Movies;
 using RateMovie.Domain.Entities;
+using RateMovie.Domain.Repositories.Movies;
 
 namespace RateMovie.Application.UseCases.Movies.Register
 {
     internal class MovieUseCaseRegister : IMovieUseCaseRegister
     {
+        private readonly IMovieWriteOnlyRepository _movieRepository;
+        public MovieUseCaseRegister(IMovieWriteOnlyRepository movieRepository)
+        {
+            _movieRepository = movieRepository;
+        }
+
         public async Task<ResponseMovieJson> Execute(RequestMovieJson req)
         {
-            var movieRepository = new MovieWriteOnlyRepository();
-
             ResponseMovieJson movieRequest = new()
             {
                 Name = req.Name,
@@ -25,7 +29,7 @@ namespace RateMovie.Application.UseCases.Movies.Register
                 Stars = movieRequest.Stars
             };
 
-            await movieRepository.Register(movie);            
+            await _movieRepository.Register(movie);            
 
             return movieRequest;
         }
