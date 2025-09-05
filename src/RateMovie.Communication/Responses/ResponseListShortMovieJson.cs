@@ -2,6 +2,6 @@
 {
     public class ResponseListShortMovieJson
     {
-        public List<ResponseShortMovieJson> Movies { get; set; } = [];
+        public List<ResponseShortMovieJson?> Movies { get; set; } = [];
     }
 }

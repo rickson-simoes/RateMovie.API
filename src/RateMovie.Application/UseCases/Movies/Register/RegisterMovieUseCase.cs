@@ -1,4 +1,5 @@
-﻿using RateMovie.Communication.Requests;
+﻿using RateMovie.Application.UseCases.MovieMapper;
+using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
@@ -14,52 +15,41 @@ namespace RateMovie.Application.UseCases.Movies.Register
             _movieRepository = movieRepository;
         }
 
-        public async Task<ResponseMovieJson> Execute(RequestMovieJson req)
+        public async Task<ResponseMovieJson> Execute(RequestMovieJson request)
         {
-            ValidationHandler(req);
+            ValidationHandler(request);
 
-            ResponseMovieJson movieRequest = new()
-            {
-                Name = req.Name,
-                Comment = req.Comment,
-                Stars = req.Stars,
-            };
+            ResponseMovieJson response = request.ToResponseMovieJson();
+            Movie movieEntity = response.ToMovieEntity();
 
-            var movie = new Movie
-            {
-                Name = movieRequest.Name,
-                Comment = movieRequest.Comment,
-                Stars = movieRequest.Stars
-            };
+            await _movieRepository.Register(movieEntity);            
 
-            await _movieRepository.Register(movie);            
-
-            return movieRequest;
+            return response;
         }
 
-        private void ValidationHandler(RequestMovieJson req)
+        private void ValidationHandler(RequestMovieJson request)
         {
             List<string> errors = [];
 
             // Nullish
-            if (string.IsNullOrWhiteSpace(req.Name))
+            if (string.IsNullOrWhiteSpace(request.Name))
             {
                 errors.Add("Name can't be null");
             }
 
             // Length
-            if (req.Name.Length > 90)
+            if (request.Name.Length > 90)
             {
                 errors.Add("Movie name must not exceed 90 characters.");
             }
 
-            if (req.Comment.Length > 700)
+            if (request.Comment is not null && request.Comment.Length > 700)
             {
                 errors.Add("Movie comment must not exceed 700 characters.");
             }
 
             // Stars 1 to 5;
-            if (req.Stars < 1 || req.Stars > 5)
+            if (request.Stars < 1 || request.Stars > 5)
             {
                 errors.Add("Stars must be between 1 and 5");
             }
