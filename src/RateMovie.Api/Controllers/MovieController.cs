@@ -28,6 +28,7 @@ namespace RateMovie.Api.Controllers
 
         [HttpPost]
         [ProducesResponseType<ResponseMovieJson>(StatusCodes.Status201Created)]
+        [ProducesResponseType<ResponseErrorJson>(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Register(
             [FromServices] IRegisterMovieUseCase movieUseCase, 
             [FromBody] RequestMovieJson req)
