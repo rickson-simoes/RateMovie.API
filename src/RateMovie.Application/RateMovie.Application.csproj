@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RateMovie.Communication\RateMovie.Communication.csproj" />
     <ProjectReference Include="..\RateMovie.Domain\RateMovie.Domain.csproj" />
+    <ProjectReference Include="..\RateMovie.Exception\RateMovie.Exception.csproj" />
     <ProjectReference Include="..\RateMovie.Infraestructure\RateMovie.Infraestructure.csproj" />
   </ItemGroup>
 

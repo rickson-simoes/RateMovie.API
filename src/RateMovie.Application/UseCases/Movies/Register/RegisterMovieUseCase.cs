@@ -3,6 +3,7 @@ using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
+using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Application.UseCases.Movies.Register
 {
@@ -57,9 +58,7 @@ namespace RateMovie.Application.UseCases.Movies.Register
             // Exception
             if (errors.Count != 0)
             {
-                string errs = string.Join(", ", errors);
-
-                throw new ArgumentException(errs);
+                throw new ValidationHandlerException(errors);
             }
         }
     }

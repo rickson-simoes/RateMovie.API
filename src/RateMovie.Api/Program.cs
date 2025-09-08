@@ -1,4 +1,4 @@
-
+using RateMovie.Api.Filters;
 using RateMovie.Application;
 using RateMovie.Infraestructure;
 
@@ -13,6 +13,9 @@ namespace RateMovie.Api
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            // MVC Options: Exception Filter
+            builder.Services.AddMvc(options => options.Filters.Add(typeof(RateMovieExceptionFilter)));
 
             // RateMovie Configs: Json without naming policy.
             builder.Services
