@@ -15,7 +15,7 @@ namespace RateMovie.Application.UseCases.Movies.Get
 
         public async Task<ResponseListShortMovieJson> Execute()
         {
-            var movies = await _movieRepository.Get();
+            var movies = await _movieRepository.GetAll();
 
             var moviesResponseListShort = movies.Select(movie => movie.ToResponseShortMovieJson()).ToList();
 

@@ -3,6 +3,7 @@ using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
+using RateMovie.Domain.Repositories.UnitOfWork;
 using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Application.UseCases.Movies.Register
@@ -10,10 +11,12 @@ namespace RateMovie.Application.UseCases.Movies.Register
     internal class RegisterMovieUseCase : IRegisterMovieUseCase
     {
         private readonly IMovieWriteOnlyRepository _movieRepository;
+        private readonly IUnitOfWorkRepository _unitOfWork;
 
-        public RegisterMovieUseCase(IMovieWriteOnlyRepository movieRepository)
+        public RegisterMovieUseCase(IMovieWriteOnlyRepository movieRepository, IUnitOfWorkRepository unitOfWork)
         {
             _movieRepository = movieRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<ResponseMovieJson> Execute(RequestMovieJson request)
@@ -23,7 +26,8 @@ namespace RateMovie.Application.UseCases.Movies.Register
             ResponseMovieJson response = request.ToResponseMovieJson();
             Movie movieEntity = response.ToMovieEntity();
 
-            await _movieRepository.Register(movieEntity);            
+            await _movieRepository.Add(movieEntity);
+            await _unitOfWork.Commit();
 
             return response;
         }

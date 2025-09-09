@@ -22,11 +22,12 @@ namespace RateMovie.Api
                 .AddControllers()
                 .AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);
 
+            // Dependency Injection: Infraestructure layer
+            builder.Services.DependencyInjectionExtensionInfra(builder.Configuration);
+
             // Dependency Injection: Application layer
             builder.Services.DependencyInjectionExtensionApp();
 
-            // Dependency Injection: Infraestructure layer
-            builder.Services.DependencyInjectionExtensionInfra(builder.Configuration);
 
 
             var app = builder.Build();

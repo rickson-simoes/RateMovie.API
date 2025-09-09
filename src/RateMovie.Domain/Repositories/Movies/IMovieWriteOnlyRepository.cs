@@ -4,6 +4,6 @@ namespace RateMovie.Domain.Repositories.Movies
 {
     public interface IMovieWriteOnlyRepository
     {
-        Task Register(Movie movie);
+        Task Add(Movie movie);
     }
 }
