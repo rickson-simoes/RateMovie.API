@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using RateMovie.Communication.Responses;
+using RateMovie.Exception;
 using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Api.Filters
@@ -29,7 +30,7 @@ namespace RateMovie.Api.Filters
 
         public void ThrowUnknownErrorException(ExceptionContext context)
         {
-            ResponseErrorJson responseErrors = new ResponseErrorJson("Unkown error");
+            ResponseErrorJson responseErrors = new ResponseErrorJson(ErrorMessagesResource.UNKNOWN_ERROR);
 
             context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
             context.Result = new ObjectResult(responseErrors);

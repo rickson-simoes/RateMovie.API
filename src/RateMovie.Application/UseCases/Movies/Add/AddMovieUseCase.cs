@@ -4,6 +4,7 @@ using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
+using RateMovie.Exception;
 using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Application.UseCases.Movies.Add
@@ -39,24 +40,24 @@ namespace RateMovie.Application.UseCases.Movies.Add
             // Nullish
             if (string.IsNullOrWhiteSpace(request.Name))
             {
-                errors.Add("Name can't be null");
+                errors.Add(ErrorMessagesResource.NAME_CANT_BE_NULL);
             }
 
             // Length
             if (request.Name.Length > 90)
             {
-                errors.Add("Movie name must not exceed 90 characters.");
+                errors.Add(ErrorMessagesResource.MOVIE_NAME_MAX_CHARACTER_LENGTH);
             }
 
             if (request.Comment is not null && request.Comment.Length > 700)
             {
-                errors.Add("Movie comment must not exceed 700 characters.");
+                errors.Add(ErrorMessagesResource.MOVIE_COMMENT_MAX_CHARACTER_LENGTH);
             }
 
             // Stars 1 to 5;
             if (request.Stars < 1 || request.Stars > 5)
             {
-                errors.Add("Stars must be between 1 and 5");
+                errors.Add(ErrorMessagesResource.MOVIE_STARS_BETWEEN_RANGE);
             }
 
             // Exception
