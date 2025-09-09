@@ -1,9 +1,9 @@
 ﻿using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
 
-namespace RateMovie.Application.UseCases.Movies.Register
+namespace RateMovie.Application.UseCases.Movies.Add
 {
-    public interface IRegisterMovieUseCase
+    public interface IAddMovieUseCase
     {
         Task<ResponseMovieJson> Execute(RequestMovieJson req);
     }

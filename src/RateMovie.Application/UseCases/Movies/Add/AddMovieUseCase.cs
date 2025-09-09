@@ -6,14 +6,14 @@ using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
 using RateMovie.Exception.RateMovieExceptions;
 
-namespace RateMovie.Application.UseCases.Movies.Register
+namespace RateMovie.Application.UseCases.Movies.Add
 {
-    internal class RegisterMovieUseCase : IRegisterMovieUseCase
+    internal class AddMovieUseCase : IAddMovieUseCase
     {
         private readonly IMovieWriteOnlyRepository _movieRepository;
         private readonly IUnitOfWorkRepository _unitOfWork;
 
-        public RegisterMovieUseCase(IMovieWriteOnlyRepository movieRepository, IUnitOfWorkRepository unitOfWork)
+        public AddMovieUseCase(IMovieWriteOnlyRepository movieRepository, IUnitOfWorkRepository unitOfWork)
         {
             _movieRepository = movieRepository;
             _unitOfWork = unitOfWork;

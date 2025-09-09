@@ -2,13 +2,13 @@
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Repositories.Movies;
 
-namespace RateMovie.Application.UseCases.Movies.Get
+namespace RateMovie.Application.UseCases.Movies.GetAll
 {
-    internal class GetMoviesUseCase : IGetMoviesUseCase
+    internal class GetAllMoviesUseCase : IGetAllMoviesUseCase
     {
         private readonly IMovieReadOnlyRepository _movieRepository;
 
-        public GetMoviesUseCase(IMovieReadOnlyRepository movieRepository)
+        public GetAllMoviesUseCase(IMovieReadOnlyRepository movieRepository)
         {
             _movieRepository = movieRepository;
         }

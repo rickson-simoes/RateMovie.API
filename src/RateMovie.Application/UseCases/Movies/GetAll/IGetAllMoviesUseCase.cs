@@ -1,8 +1,8 @@
 ﻿using RateMovie.Communication.Responses;
 
-namespace RateMovie.Application.UseCases.Movies.Get
+namespace RateMovie.Application.UseCases.Movies.GetAll
 {
-    public interface IGetMoviesUseCase
+    public interface IGetAllMoviesUseCase
     {
         Task<ResponseListShortMovieJson> Execute();
     }
