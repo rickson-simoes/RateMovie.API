@@ -124,7 +124,7 @@
     <value>Movie name must not exceed 90 characters</value>
   </data>
   <data name="MOVIE_STARS_BETWEEN_RANGE" xml:space="preserve">
-    <value>Stars must be between 1 and 5</value>
+    <value>Your rating must be between 1 and 5 stars</value>
   </data>
   <data name="NAME_CANT_BE_NULL" xml:space="preserve">
     <value>Name can't be null</value>

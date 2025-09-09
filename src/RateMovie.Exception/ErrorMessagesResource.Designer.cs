@@ -79,7 +79,7 @@ namespace RateMovie.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stars must be between 1 and 5.
+        ///   Looks up a localized string similar to Your rating must be between 1 and 5 stars.
         /// </summary>
         public static string MOVIE_STARS_BETWEEN_RANGE {
             get {

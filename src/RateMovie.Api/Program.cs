@@ -1,4 +1,5 @@
 using RateMovie.Api.Filters;
+using RateMovie.Api.Middlewares;
 using RateMovie.Application;
 using RateMovie.Infraestructure;
 
@@ -36,6 +37,9 @@ namespace RateMovie.Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            // Language Middleware
+            app.UseMiddleware<LanguageMiddleware>();
 
             app.UseHttpsRedirection();
             app.UseAuthorization();
