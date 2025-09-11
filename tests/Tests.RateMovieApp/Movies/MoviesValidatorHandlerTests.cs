@@ -34,6 +34,7 @@ namespace Tests.RateMovieApp.Movies
         [Theory]
         [InlineData("")]
         [InlineData(null)]
+        [InlineData("   ")]
         public void Fail_When_Name_Is_Null_Or_Empty(string? name)
         {
             var request = new RequestMovieDataBuilder().Build();
