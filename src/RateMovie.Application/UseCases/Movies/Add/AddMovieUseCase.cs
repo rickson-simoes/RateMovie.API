@@ -22,7 +22,7 @@ namespace RateMovie.Application.UseCases.Movies.Add
 
         public async Task<ResponseMovieJson> Execute(RequestMovieJson request)
         {
-            ValidationHandler(request);
+            new MoviesValidatorHandler().RequestMovie(request);
 
             ResponseMovieJson response = request.ToResponseMovieJson();
             Movie movieEntity = response.ToMovieEntity();
@@ -31,40 +31,6 @@ namespace RateMovie.Application.UseCases.Movies.Add
             await _unitOfWork.Commit();
 
             return response;
-        }
-
-        private void ValidationHandler(RequestMovieJson request)
-        {
-            List<string> errors = [];
-
-            // Nullish
-            if (string.IsNullOrWhiteSpace(request.Name))
-            {
-                errors.Add(ErrorMessagesResource.NAME_CANT_BE_NULL);
-            }
-
-            // Length
-            if (request.Name.Length > 90)
-            {
-                errors.Add(ErrorMessagesResource.MOVIE_NAME_MAX_CHARACTER_LENGTH);
-            }
-
-            if (request.Comment is not null && request.Comment.Length > 700)
-            {
-                errors.Add(ErrorMessagesResource.MOVIE_COMMENT_MAX_CHARACTER_LENGTH);
-            }
-
-            // Stars 1 to 5;
-            if (request.Stars < 1 || request.Stars > 5)
-            {
-                errors.Add(ErrorMessagesResource.MOVIE_STARS_BETWEEN_RANGE);
-            }
-
-            // Exception
-            if (errors.Count != 0)
-            {
-                throw new ValidationHandlerException(errors);
-            }
         }
     }
 }
