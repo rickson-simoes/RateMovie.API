@@ -3,7 +3,7 @@ using RateMovie.Exception;
 using RateMovie.Exception.RateMovieExceptions;
 using Tests.CommonUtilities.BogusMovieValidator;
 
-namespace Tests.RateMovieApp.Movies
+namespace Tests.RateMovieApp.Movies.UnitTests
 {
     public class MoviesValidatorHandlerTests
     {
