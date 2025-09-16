@@ -56,7 +56,7 @@ Follow these steps to **run the API locally** with migrations and seed data:
      ```  
      > Note: This tool is required to run migrations and update the database. 
 
-2. **Run in the project root to seed the database:**  
+2. **Run this command in the project root to seed the database, as the migrations are already included:**  
    ```bash
    dotnet ef database update --project src/RateMovie.Infraestructure --startup-project src/RateMovie.Api
    ```
