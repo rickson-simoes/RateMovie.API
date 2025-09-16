@@ -43,8 +43,6 @@ The system allows adding, listing movies and editing.
 - **Unit Tests**: validated with **xUnit**, ensuring business rules work in isolation.
 - **Bogus**: generates fake data to simulate real-world scenarios.  
 
----
-
 ## 🖥️ Running Locally 
 
 Follow these steps to **run the API locally** with migrations and seed data:  
