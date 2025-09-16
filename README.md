@@ -1,7 +1,6 @@
 # 🎬 Movie.API  
-
 An application built with **ASP.NET Core** following **DDD (Domain-Driven Design)** architecture for managing movies.  
-The system allows adding, listing movies and editing. 
+The system allows adding, listing movies and editing.
 
 ## 🚀 Features
 
@@ -14,7 +13,12 @@ The system allows adding, listing movies and editing.
 - **DELETE /movies/{id}** → Delete a movie.  
 - **Reports**  
   - Generate **PDF** report of inserted movies.  
-  - Generate **Excel** report of inserted movies.  
+  - Generate **Excel** report of inserted movies.
+
+### 📃 Swagger Preview
+<img width="1060" height="877" alt="image" src="https://github.com/user-attachments/assets/6e247ffc-6f82-4609-ad61-3651756c3bc5" />
+<img width="906" height="938" alt="image" src="https://github.com/user-attachments/assets/73996564-fb0f-4396-b986-ac0c557462e6" />
+
 
 ## 🛠️ Tech Stack
 - **ASP.NET Core** – API development.
