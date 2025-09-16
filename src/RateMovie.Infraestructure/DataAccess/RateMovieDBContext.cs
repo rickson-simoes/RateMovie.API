@@ -17,7 +17,7 @@ namespace RateMovie.Infraestructure.DataAccess
                 .Entity<Movie>(entity =>
                 {
                     EntityBuilderMovieTableAndColumns(entity);
-                    EntityBuilderMovieData(entity);
+                    EntityBuilderMovieSeed(entity);
                 });
         }
 
@@ -46,7 +46,7 @@ namespace RateMovie.Infraestructure.DataAccess
             entity.ToTable(b => b.HasCheckConstraint("CK_Movies_Stars", "Stars BETWEEN 1 AND 5"));
         }
 
-        private void EntityBuilderMovieData(EntityTypeBuilder<Movie> entity)
+        private void EntityBuilderMovieSeed(EntityTypeBuilder<Movie> entity)
         {
             entity.HasData(
                 new Movie
