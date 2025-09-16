@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RateMovie.Application.UseCases.Movies.Add;
 using RateMovie.Application.UseCases.Movies.GetAll;
+using RateMovie.Application.UseCases.Movies.Update;
 using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
 
@@ -36,6 +37,21 @@ namespace RateMovie.Api.Controllers
             var response = await addMovieUseCase.Execute(req);
 
             return Created("", response);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        [ProducesResponseType<ResponseMovieJson>(StatusCodes.Status200OK)]
+        [ProducesResponseType<ResponseErrorJson>(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType<ResponseErrorJson>(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Update(
+            [FromServices] IUpdateMovieUseCase updateMovieUseCase,
+            [FromRoute] int id,
+            [FromBody] RequestMovieJson req)
+        {
+            var response = await updateMovieUseCase.Execute(id, req);
+
+            return Ok(response);
         }
     }
 }

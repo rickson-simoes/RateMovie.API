@@ -123,6 +123,9 @@
   <data name="MOVIE_NAME_MAX_CHARACTER_LENGTH" xml:space="preserve">
     <value>Movie name must not exceed 90 characters</value>
   </data>
+  <data name="MOVIE_NOT_FOUND" xml:space="preserve">
+    <value>Movie not found</value>
+  </data>
   <data name="MOVIE_STARS_BETWEEN_RANGE" xml:space="preserve">
     <value>Your rating must be between 1 and 5 stars</value>
   </data>

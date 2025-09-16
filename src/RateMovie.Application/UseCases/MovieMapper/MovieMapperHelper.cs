@@ -38,5 +38,12 @@ namespace RateMovie.Application.UseCases.MovieMapper
                 Stars = responseMovie.Stars
             };
         }
+
+        public static void GetRequestMovieData(this Movie movie, RequestMovieJson req)
+        {
+            movie.Name = req.Name;
+            movie.Comment = req.Comment;
+            movie.Stars = req.Stars;
+        }
     }
 }
