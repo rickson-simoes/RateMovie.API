@@ -45,12 +45,12 @@ The system allows adding, listing movies and editing.
 
 ---
 
-## 🧪 Running Locally 
+## 🖥️ Running Locally 
 
 Follow these steps to **run the API locally** with migrations and seed data:  
 
 1. **Install prerequisites:**  
-   - **.NET 8.0 SDK**  
+   - **.NET 8.0 SDK**
    - **MySQL 8.0.42** (or compatible)  
    - **Entity Framework Core CLI tool**:  
      ```bash
