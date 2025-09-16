@@ -17,9 +17,10 @@ The system allows adding, listing movies and editing.
   - Generate **Excel** report of inserted movies.  
 
 ## 🛠️ Tech Stack
-- **ASP.NET Core** – API development.  
-- **MySQL** – Database for persistence.  
-- **xUnit** – Unit and integration testing.  
+- **ASP.NET Core** – API development.
+- **MySQL** – Database for persistence.
+- **Entity Framework Core** – Modern ORM for .NET, used for database access, migrations, and data management.
+- **xUnit** – Unit and integration testing.
 - **Bogus** – Fake data generation for testing scenarios.
 
 ## 📂 Architecture
@@ -43,3 +44,22 @@ The system allows adding, listing movies and editing.
 - **Bogus**: generates fake data to simulate real-world scenarios.  
 
 ---
+
+## 🧪 Running Locally 
+
+Follow these steps to **run the API locally** with migrations and seed data:  
+
+1. **Install prerequisites:**  
+   - **.NET 8.0 SDK**  
+   - **MySQL 8.0.42** (or compatible)  
+   - **Entity Framework Core CLI tool**:  
+     ```bash
+     dotnet tool install --global dotnet-ef
+     ```  
+     > Note: This tool is required to run migrations and update the database. 
+
+2. **Run in the project root to seed the database:**  
+   ```bash
+   dotnet ef database update --project src/RateMovie.Infraestructure --startup-project src/RateMovie.Api
+   ```
+
