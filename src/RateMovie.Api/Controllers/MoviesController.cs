@@ -9,7 +9,7 @@ namespace RateMovie.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MovieController : ControllerBase
+    public class MoviesController : ControllerBase
     {
 
         [HttpGet]
