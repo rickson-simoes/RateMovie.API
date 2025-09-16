@@ -18,7 +18,7 @@ namespace RateMovie.Infraestructure
             DependencyInjectionScoped(service);
         }
 
-        public static void DependencyInjectionScoped(IServiceCollection service)
+        private static void DependencyInjectionScoped(IServiceCollection service)
         {
             service.AddScoped<IUnitOfWorkRepository, UnitOfWorkRepository>();
             service.AddScoped<IMovieWriteOnlyRepository, MovieRepository>();
@@ -26,7 +26,7 @@ namespace RateMovie.Infraestructure
             service.AddScoped<IMovieUpdateOnlyRepository, MovieRepository>();
         }
 
-        public static void DependencyInjectionDbContext(IServiceCollection service, IConfiguration config)
+        private static void DependencyInjectionDbContext(IServiceCollection service, IConfiguration config)
         {
             var version = new Version(8, 0, 42);
             var mySqlVersion = new MySqlServerVersion(version);
