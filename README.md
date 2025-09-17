@@ -16,7 +16,7 @@ The system allows adding, listing movies and editing.
   - Generate **Excel** report of inserted movies.
 
 ### 📃 Swagger Preview
-<img width="1060" height="877" alt="image" src="https://github.com/user-attachments/assets/6e247ffc-6f82-4609-ad61-3651756c3bc5" />
+<img width="1308" height="871" alt="image" src="https://github.com/user-attachments/assets/3514658e-9e5b-4a88-8408-3e7d66bf5f4a" />
 <img width="906" height="938" alt="image" src="https://github.com/user-attachments/assets/73996564-fb0f-4396-b986-ac0c557462e6" />
 
 
