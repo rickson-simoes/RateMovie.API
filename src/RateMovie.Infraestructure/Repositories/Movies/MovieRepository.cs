@@ -21,6 +21,16 @@ namespace RateMovie.Infraestructure.Repositories.Movies
             return movies;
         }
 
+        public async Task<List<Movie>> GetAll(byte? stars)
+        {
+            var query = _rateMovieDBContext.Movies.AsNoTracking();
+
+            if (stars is >= 1 and <= 5)
+                query = query.Where(movie => movie.Stars == stars);
+
+            return await query.ToListAsync();
+        }
+
         public async Task Add(Movie movie)
         {
             await _rateMovieDBContext.Movies.AddAsync(movie);
