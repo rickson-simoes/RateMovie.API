@@ -2,7 +2,7 @@
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;
 
-namespace RateMovie.Application.UseCases.MovieMapper
+namespace RateMovie.Application.MovieMapper
 {
     public static class MovieMapperHelper
     {

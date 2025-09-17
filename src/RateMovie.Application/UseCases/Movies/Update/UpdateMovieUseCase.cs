@@ -1,4 +1,4 @@
-﻿using RateMovie.Application.UseCases.MovieMapper;
+﻿using RateMovie.Application.MovieMapper;
 using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;

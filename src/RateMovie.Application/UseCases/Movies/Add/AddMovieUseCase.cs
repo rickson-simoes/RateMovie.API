@@ -1,11 +1,9 @@
-﻿using RateMovie.Application.UseCases.MovieMapper;
+﻿using RateMovie.Application.MovieMapper;
 using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
-using RateMovie.Exception;
-using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Application.UseCases.Movies.Add
 {
