@@ -21,6 +21,10 @@ The system allows adding, listing movies and editing.
 <img width="1308" height="871" alt="image" src="https://github.com/user-attachments/assets/3514658e-9e5b-4a88-8408-3e7d66bf5f4a" />
 <img width="906" height="938" alt="image" src="https://github.com/user-attachments/assets/73996564-fb0f-4396-b986-ac0c557462e6" />
 
+### 📃 Excel Preview
+<img width="970" height="501" alt="image" src="https://github.com/user-attachments/assets/afdb2b13-4686-4aae-a78c-ec5842f572c8" />
+
+
 
 ## 🛠️ Tech Stack
 - **ASP.NET Core** – API development.
