@@ -19,6 +19,16 @@ namespace RateMovie.Application.MovieMapper
             };
         }
 
+        public static ResponseMovieJson ToResponseMovieJson(this Movie requestMovie)
+        {
+            return new ResponseMovieJson
+            {
+                Name = requestMovie.Name,
+                Comment = requestMovie.Comment,
+                Stars = requestMovie.Stars,
+            };
+        }
+
         public static ResponseMovieJson ToResponseMovieJson(this RequestMovieJson requestMovie)
         {
             return new ResponseMovieJson

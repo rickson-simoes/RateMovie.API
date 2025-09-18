@@ -2,6 +2,7 @@
 using RateMovie.Application.UseCases.Movies.Add;
 using RateMovie.Application.UseCases.Movies.Delete;
 using RateMovie.Application.UseCases.Movies.GetAll;
+using RateMovie.Application.UseCases.Movies.GetById;
 using RateMovie.Application.UseCases.Movies.Update;
 using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
@@ -24,6 +25,19 @@ namespace RateMovie.Api.Controllers
             {
                 return NoContent();
             }
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        [ProducesResponseType<ResponseMovieJson>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetById(
+            [FromServices] IGetMovieByIdUseCase getMovieByIdUseCase,
+            [FromRoute] int id)
+        {
+            var response = await getMovieByIdUseCase.Execute(id);
 
             return Ok(response);
         }

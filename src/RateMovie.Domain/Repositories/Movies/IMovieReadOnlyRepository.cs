@@ -6,5 +6,6 @@ namespace RateMovie.Domain.Repositories.Movies
     {
         Task<List<Movie>> GetAll();
         Task<List<Movie>> GetAll(byte? stars);
+        Task<Movie?> GetById(int id);
     }
 }

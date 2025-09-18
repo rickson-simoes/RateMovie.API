@@ -40,6 +40,12 @@ namespace RateMovie.Infraestructure.Repositories.Movies
             await _rateMovieDBContext.Movies.AddAsync(movie);
         }
 
+        async Task<Movie?> IMovieReadOnlyRepository.GetById(int id)
+        {
+            var movie = await _rateMovieDBContext.Movies.AsNoTracking().FirstOrDefaultAsync(movie => movie.Id == id);
+
+            return movie;
+        }
         public async Task<Movie?> GetById(int id)
         {
             var movie = await _rateMovieDBContext.Movies.FirstOrDefaultAsync(movie => movie.Id == id);
