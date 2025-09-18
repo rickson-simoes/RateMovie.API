@@ -7,17 +7,23 @@ The system allows adding, listing movies and editing.
 ### ✅ Implemented
 - **GET /movies** → Returns all registered movies.  
 - **POST /movies** → Adds a new movie.
-- **PUT /movies/{id}** → Edit an existing movie. 
+- **PUT /movies/{id}** → Edit an existing movie.
+- **Reports**: Generate an **Excel** report of movies.  
+  - If the `stars` query parameter is provided (1–5), the report will include only movies with that rating.  
+  - If omitted or invalid, the report will include all rated movies.
 
 ### 🔜 Coming soon
 - **DELETE /movies/{id}** → Delete a movie.  
 - **Reports**  
   - Generate **PDF** report of inserted movies.  
-  - Generate **Excel** report of inserted movies.
 
 ### 📃 Swagger Preview
-<img width="1060" height="877" alt="image" src="https://github.com/user-attachments/assets/6e247ffc-6f82-4609-ad61-3651756c3bc5" />
+<img width="1308" height="871" alt="image" src="https://github.com/user-attachments/assets/3514658e-9e5b-4a88-8408-3e7d66bf5f4a" />
 <img width="906" height="938" alt="image" src="https://github.com/user-attachments/assets/73996564-fb0f-4396-b986-ac0c557462e6" />
+
+### 📃 Excel Preview
+<img width="970" height="501" alt="image" src="https://github.com/user-attachments/assets/afdb2b13-4686-4aae-a78c-ec5842f572c8" />
+
 
 
 ## 🛠️ Tech Stack
