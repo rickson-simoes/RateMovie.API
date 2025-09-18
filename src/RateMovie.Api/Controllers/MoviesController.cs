@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RateMovie.Application.UseCases.Movies.Add;
+using RateMovie.Application.UseCases.Movies.Delete;
 using RateMovie.Application.UseCases.Movies.GetAll;
 using RateMovie.Application.UseCases.Movies.Update;
 using RateMovie.Communication.Requests;
@@ -50,6 +51,19 @@ namespace RateMovie.Api.Controllers
             [FromBody] RequestMovieJson req)
         {
             var response = await updateMovieUseCase.Execute(id, req);
+
+            return Ok(response);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        [ProducesResponseType<ResponseMessageJson>(StatusCodes.Status200OK)]
+        [ProducesResponseType<ResponseErrorJson>(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Delete(
+            [FromServices] IDeleteMovieUseCase deleteMovieUseCase,
+            [FromRoute] int id)
+        {
+            var response = await deleteMovieUseCase.Execute(id);
 
             return Ok(response);
         }

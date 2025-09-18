@@ -5,7 +5,11 @@ using RateMovie.Infraestructure.DataAccess;
 
 namespace RateMovie.Infraestructure.Repositories.Movies
 {
-    internal class MovieRepository : IMovieReadOnlyRepository, IMovieWriteOnlyRepository, IMovieUpdateOnlyRepository
+    internal class MovieRepository : 
+        IMovieReadOnlyRepository,
+        IMovieWriteOnlyRepository,
+        IMovieUpdateOnlyRepository,
+        IMovieDeleteOnlyRepository
     {
         private readonly RateMovieDBContext _rateMovieDBContext;
 
@@ -46,6 +50,11 @@ namespace RateMovie.Infraestructure.Repositories.Movies
         public void Update(Movie movie)
         {
             _rateMovieDBContext.Movies.Update(movie);
+        }
+
+        public void Delete(Movie movie)
+        {
+            _rateMovieDBContext.Movies.Remove(movie);
         }
     }
 }
