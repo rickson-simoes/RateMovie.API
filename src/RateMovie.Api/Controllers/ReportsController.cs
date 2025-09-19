@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RateMovie.Application.UseCases.Reports.GenerateMoviesExcel;
+using System.Net.Mime;
 
 namespace RateMovie.Api.Controllers
 {
@@ -25,20 +26,20 @@ namespace RateMovie.Api.Controllers
             return File(fileBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "movie-report.xlsx");
         }
 
-        //[HttpGet]
-        //[Route("movies-pdf")]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //public async Task<IActionResult> GeneratePdf([FromQuery] byte? stars)
-        //{
-        //    byte[] fileBytes = new byte[1];
+        [HttpGet]
+        [Route("movies-pdf")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> GeneratePdf([FromQuery] byte? stars)
+        {
+            byte[] fileBytes = new byte[1];
 
-        //    if (fileBytes.Length < 1)
-        //    {
-        //        return NoContent();
-        //    }
+            if (fileBytes.Length < 1)
+            {
+                return NoContent();
+            }
 
-        //    return File(fileBytes, MediaTypeNames.Application.Pdf, "movie-report.pdf");
-        //}
+            return File(fileBytes, MediaTypeNames.Application.Pdf, "movie-report.pdf");
+        }
     }
 }
