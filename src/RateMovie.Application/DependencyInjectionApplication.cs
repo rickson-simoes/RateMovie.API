@@ -5,6 +5,7 @@ using RateMovie.Application.UseCases.Movies.GetAll;
 using RateMovie.Application.UseCases.Movies.GetById;
 using RateMovie.Application.UseCases.Movies.Update;
 using RateMovie.Application.UseCases.Reports.GenerateMoviesExcel;
+using RateMovie.Application.UseCases.Reports.GenerateMoviesPdf;
 
 namespace RateMovie.Application
 {
@@ -18,6 +19,7 @@ namespace RateMovie.Application
             service.AddScoped<IDeleteMovieUseCase, DeleteMovieUseCase>();
             service.AddScoped<IGetMovieByIdUseCase, GetMovieByIdUseCase>();
             service.AddScoped<IGenerateMoviesExcelUseCase, GenerateMoviesExcelUseCase>();
+            service.AddScoped<IGenerateMoviesPdfUseCase, GenerateMoviesPdfUseCase>();
         }
     }
 }

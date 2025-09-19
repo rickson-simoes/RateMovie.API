@@ -1,3 +1,4 @@
+using QuestPDF.Infrastructure;
 using RateMovie.Api.Filters;
 using RateMovie.Api.Middlewares;
 using RateMovie.Application;
@@ -29,7 +30,7 @@ namespace RateMovie.Api
             // Dependency Injection: Application layer
             builder.Services.DependencyInjectionExtensionApp();
 
-
+            QuestPDF.Settings.License = LicenseType.Community;
 
             var app = builder.Build();
             if (app.Environment.IsDevelopment())

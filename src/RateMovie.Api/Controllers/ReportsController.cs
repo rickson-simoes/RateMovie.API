@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RateMovie.Application.UseCases.Reports.GenerateMoviesExcel;
+using RateMovie.Application.UseCases.Reports.GenerateMoviesPdf;
 using System.Net.Mime;
 
 namespace RateMovie.Api.Controllers
@@ -30,9 +31,11 @@ namespace RateMovie.Api.Controllers
         [Route("movies-pdf")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GeneratePdf([FromQuery] byte? stars)
+        public async Task<IActionResult> GeneratePdf(
+            [FromServices] IGenerateMoviesPdfUseCase moviesPdfUseCase,
+            [FromQuery] byte? stars)
         {
-            byte[] fileBytes = new byte[1];
+            byte[] fileBytes = await moviesPdfUseCase.Execute(stars);
 
             if (fileBytes.Length < 1)
             {
