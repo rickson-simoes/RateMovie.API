@@ -30,7 +30,12 @@ namespace RateMovie.Application.UseCases.Reports.GenerateMoviesExcel
             CreateHeader(wb, ws);
             InsertMovieData(movies, ws);
 
-            ws.Columns().AdjustToContents();
+            ws.Column("A").AdjustToContents();
+            ws.Column("A").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            ws.Column("B").Width= 100;
+
+            ws.Column("C").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
 
             using var file = new MemoryStream();
             wb.SaveAs(file);
