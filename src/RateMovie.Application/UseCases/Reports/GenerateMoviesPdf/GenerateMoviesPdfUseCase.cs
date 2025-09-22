@@ -4,6 +4,7 @@ using QuestPDF.Infrastructure;
 using RateMovie.Application.Assets.Fonts;
 using RateMovie.Application.Assets.PdfColors;
 using RateMovie.Domain.Entities;
+using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Resources.Reports;
 using System.Reflection;
 
@@ -11,25 +12,16 @@ namespace RateMovie.Application.UseCases.Reports.GenerateMoviesPdf
 {
     internal class GenerateMoviesPdfUseCase : IGenerateMoviesPdfUseCase
     {
+        private readonly IMovieReadOnlyRepository _movieReadOnlyRepository;
+
+        public GenerateMoviesPdfUseCase(IMovieReadOnlyRepository movieReadOnlyRepository)
+        {
+            _movieReadOnlyRepository = movieReadOnlyRepository;
+        }
+
         public async Task<byte[]> Execute(byte? stars)
         {
-            var movies = new List<Movie>
-            {
-                new Movie
-                {
-                    Id = 1,
-                    Name = "Inception",
-                    Comment = "A mind-bending heist movie.",
-                    Stars = 3
-                },
-                new Movie
-                {
-                    Id = 2,
-                    Name = "The Matrix",
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur seiusmod tempor incididunt ut labore et dolore ma. Ent, sunt in culpa qui officia deserunt mollit anim id estadffddfsdfsd sdafa1 sda3",
-                    Stars = 5
-                }
-            };
+            var movies = await _movieReadOnlyRepository.GetAll(stars);
 
             if (movies.Count is 0)
             {
