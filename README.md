@@ -1,6 +1,6 @@
 # 🎬 Movie.API  
-An application built with **ASP.NET Core** following **DDD (Domain-Driven Design)** architecture for managing movies.  
-The system allows adding, listing movies and editing.
+An ASP.NET Core application designed with Domain-Driven Design (DDD) principles to manage movie critics.
+It supports adding, listing, editing, and deleting movies, as well as generating PDF and Excel reports.
 
 ## 🚀 Features
 
@@ -9,24 +9,25 @@ The system allows adding, listing movies and editing.
 - **GET By Id /movies/{id}** → Returns all registered movies. 
 - **POST /movies** → Adds a new movie.
 - **PUT /movies/{id}** → Edit an existing movie.
-- **DELETE /movies/{id}** → Delete a movie.
-  
-- **Reports**:
-  - **GET /api/Reports/movies-excel?stars={1-5} → Generates an **Excel** report of movies.  
-    - If the `stars` query parameter is provided (1–5), the report will include only movies with that rating.  
-    - If omitted or invalid, the report will include all rated movies.
+- **DELETE /movies/{id}** → Delete a movie.  
+- **Reports** If the stars query parameter is provided (1–5), the report will only include movies with that rating; otherwise, it will include all rated movies.:
+  - **GET /api/Reports/movies-excel?stars={1-5}** → Generates an **Excel** report of movies.  
+  - **GET /api/Reports/movies-pdf?stars={1-5}** → Generates a **PDF** report of movies.
 
-### 🔜 Coming soon
-- **Reports**  
-  - Generate **PDF** report of inserted movies.  
+
 
 ### 📃 Swagger Preview
-<img width="906" height="938" alt="image" src="https://github.com/user-attachments/assets/f16604e1-8b11-4b1a-a37c-3a9576c3bf0d" />
+<img width="1290" height="1051" alt="image" src="https://github.com/user-attachments/assets/54d7a207-a954-4b1f-8c53-ca714fefbb10" />
 
+**Response types at each request**:
 <img width="906" height="938" alt="image" src="https://github.com/user-attachments/assets/73996564-fb0f-4396-b986-ac0c557462e6" />
 
 ### 📃 Excel Preview
 <img width="970" height="501" alt="image" src="https://github.com/user-attachments/assets/afdb2b13-4686-4aae-a78c-ec5842f572c8" />
+
+### 📃 PDF Preview
+<img width="808" height="1138" alt="image" src="https://github.com/user-attachments/assets/64b8ce87-1745-4ae7-87bf-b6c5fa45acf1" />
+<img width="571" height="873" alt="image" src="https://github.com/user-attachments/assets/9732cf68-5285-4dc4-8055-6aa38e303f9a" />
 
 
 
@@ -34,8 +35,11 @@ The system allows adding, listing movies and editing.
 - **ASP.NET Core** – API development.
 - **MySQL** – Database for persistence.
 - **Entity Framework Core** – Modern ORM for .NET, used for database access, migrations, and data management.
+- **Pomelo.EF Core. MySql**
 - **xUnit** – Unit and integration testing.
 - **Bogus** – Fake data generation for testing scenarios.
+- **ClosedXML** - Generates a custom Excel.
+- **QuestPDF** - Generates a custom PDF.
 
 ## 📂 Architecture
 - **Domain** → Entities, aggregates, and business rules.  
