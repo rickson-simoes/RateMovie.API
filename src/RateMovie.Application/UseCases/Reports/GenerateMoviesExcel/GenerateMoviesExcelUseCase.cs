@@ -75,6 +75,7 @@ namespace RateMovie.Application.UseCases.Reports.GenerateMoviesExcel
                 // Values
                 ws.Cell($"A{cellLine}").Value = movie.Name;
                 ws.Cell($"B{cellLine}").Value = movie.Comment;
+                ws.Cell($"B{cellLine}").Style.Alignment.WrapText = true; 
                 ws.Cell($"C{cellLine}").Value = movie.Stars;
 
                 cellLine++;
