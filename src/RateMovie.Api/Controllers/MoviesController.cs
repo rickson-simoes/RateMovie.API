@@ -32,7 +32,7 @@ namespace RateMovie.Api.Controllers
         [HttpGet]
         [Route("{id}")]
         [ProducesResponseType<ResponseMovieJson>(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType<ResponseErrorJson>(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(
             [FromServices] IGetMovieByIdUseCase getMovieByIdUseCase,
             [FromRoute] int id)
