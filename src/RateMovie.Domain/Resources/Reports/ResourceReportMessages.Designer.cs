@@ -86,5 +86,14 @@ namespace RateMovie.Domain.Resources.Reports {
                 return ResourceManager.GetString("COLUMN_STARS", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RateMovie - Make your own critics.
+        /// </summary>
+        public static string PDF_HEADER_TITLE {
+            get {
+                return ResourceManager.GetString("PDF_HEADER_TITLE", resourceCulture);
+            }
+        }
     }
 }

@@ -126,4 +126,7 @@
   <data name="COLUMN_STARS" xml:space="preserve">
     <value>Stars</value>
   </data>
+  <data name="PDF_HEADER_TITLE" xml:space="preserve">
+    <value>RateMovie - Make your own critics</value>
+  </data>
 </root>
