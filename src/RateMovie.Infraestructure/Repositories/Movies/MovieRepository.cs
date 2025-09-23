@@ -32,7 +32,7 @@ namespace RateMovie.Infraestructure.Repositories.Movies
             if (stars is >= 1 and <= 5)
                 query = query.Where(movie => movie.Stars == stars);
 
-            return await query.ToListAsync();
+            return await query.OrderByDescending(movie => movie.Stars).ToListAsync();
         }
 
         public async Task Add(Movie movie)

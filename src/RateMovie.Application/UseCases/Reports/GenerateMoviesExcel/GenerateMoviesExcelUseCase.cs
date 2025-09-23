@@ -70,7 +70,7 @@ namespace RateMovie.Application.UseCases.Reports.GenerateMoviesExcel
         {
             var cellLine = 2;
 
-            foreach (var movie in movies.OrderByDescending(m => m.Stars))
+            foreach (var movie in movies)
             {
                 // Fonts
                 ws.Cells($"A{cellLine}:C{cellLine}").Style.Font.FontName = "Calibri";
