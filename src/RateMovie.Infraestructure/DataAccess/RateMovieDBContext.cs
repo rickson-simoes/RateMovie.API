@@ -130,23 +130,23 @@ namespace RateMovie.Infraestructure.DataAccess
                 new Movie
                 {
                     Id = 12,
-                    Name = "The Amazing Spider-Man 2",
-                    Comment = "This sequel suffers from an overcrowded plot with too many villains and competing storylines. While Andrew Garfield and Emma Stone have great chemistry and the visual effects are decent, the film's narrative feels disjointed and rushed. It introduces multiple villains without giving any of them enough time to be fully developed, leading to a muddled and unsatisfying experience. It's a prime example of a studio trying to build a shared universe too quickly without focusing on a single, compelling story. A wasted opportunity for a promising reboot.",
-                    Stars = 2
-                },
-                new Movie
-                {
-                    Id = 13,
                     Name = "Batman & Robin",
                     Comment = "A notoriously campy and ridiculed superhero film that completely misunderstands its source material. Joel Schumacher's direction takes a neon-soaked, over-the-top approach, resulting in a movie filled with cheesy one-liners, bizarre costume designs (like the infamous bat-nipples), and a nonsensical plot. While some now view it as a 'so bad it's good' spectacle, it was a critical and commercial failure that nearly killed the Batman film franchise for years. A truly absurd and baffling cinematic misstep that stands out for all the wrong reasons.",
                     Stars = 1
                 },
                 new Movie
                 {
-                    Id = 14,
+                    Id = 13,
                     Name = "Get Out",
                     Comment = "A groundbreaking horror film that is as terrifying as it is brilliant. Jordan Peele's debut is a masterclass in building tension and subverting genre tropes, using the framework of a horror movie to deliver a sharp and incisive critique of modern racism. The film's atmosphere is unsettling from the very beginning, building a sense of dread that culminates in a truly chilling and unforgettable climax. Daniel Kaluuya gives a phenomenal performance, and the film is filled with clever details and symbolism that reward a close look. It’s a smart, socially relevant horror film that has forever changed the genre.",
                     Stars = 5
+                },
+                new Movie
+                {
+                    Id = 14,
+                    Name = "Humanistic Vampire Seeking Consenting Suicidal Person",
+                    Comment = "The movie is interesting because it presents a vampire who, instead of killing, seeks a way to feed voluntarily, finding people who are willing to die for a cause. This approach subverts the cliché of the bloodthirsty vampire and makes us reflect on morality and the need for survival.",
+                    Stars = 3
                 },
                 new Movie
                 {
