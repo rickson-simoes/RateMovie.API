@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RateMovie.Domain.Entities;
-using System.Xml.Linq;
 
 namespace RateMovie.Infrastructure.DataAccess
 {

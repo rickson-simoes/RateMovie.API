@@ -3,12 +3,13 @@ using RateMovie.Api.Middlewares;
 using RateMovie.Api.PackagesConfigurations;
 using RateMovie.Application;
 using RateMovie.Infrastructure;
+using RateMovie.Infrastructure.Migrations;
 
 namespace RateMovie.Api
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +39,9 @@ namespace RateMovie.Api
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+
+                // Migrations/Seeds
+                await app.ExecuteDatabaseMigration();
             }
 
             // Language Middleware
@@ -46,7 +50,17 @@ namespace RateMovie.Api
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
-            app.Run();
+
+            await app.RunAsync();
+        }
+    }
+
+    public static class DBMigration
+    {
+        public static async Task ExecuteDatabaseMigration(this WebApplication app)
+        {
+            await using var asyncScoped = app.Services.CreateAsyncScope();
+            await DatabaseMigration.Execute(asyncScoped.ServiceProvider);
         }
     }
 }
