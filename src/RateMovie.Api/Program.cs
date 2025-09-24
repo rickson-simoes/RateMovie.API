@@ -2,7 +2,7 @@ using RateMovie.Api.Filters;
 using RateMovie.Api.Middlewares;
 using RateMovie.Api.PackagesConfigurations;
 using RateMovie.Application;
-using RateMovie.Infraestructure;
+using RateMovie.Infrastructure;
 
 namespace RateMovie.Api
 {
@@ -24,7 +24,7 @@ namespace RateMovie.Api
                 .AddControllers()
                 .AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);
 
-            // Dependency Injection: Infraestructure layer
+            // Dependency Injection: Infrastructure layer
             builder.Services.DependencyInjectionExtensionInfra(builder.Configuration);
 
             // Dependency Injection: Application layer

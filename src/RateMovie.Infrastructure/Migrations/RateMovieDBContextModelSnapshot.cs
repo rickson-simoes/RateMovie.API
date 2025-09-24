@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RateMovie.Infraestructure.DataAccess;
+using RateMovie.Infrastructure.DataAccess;
 
 #nullable disable
 
-namespace RateMovie.Infraestructure.Migrations
+namespace RateMovie.Infrastructure.Migrations
 {
     [DbContext(typeof(RateMovieDBContext))]
     partial class RateMovieDBContextModelSnapshot : ModelSnapshot

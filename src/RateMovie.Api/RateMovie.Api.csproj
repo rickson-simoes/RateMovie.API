@@ -18,6 +18,7 @@
     <ProjectReference Include="..\RateMovie.Application\RateMovie.Application.csproj" />
     <ProjectReference Include="..\RateMovie.Communication\RateMovie.Communication.csproj" />
     <ProjectReference Include="..\RateMovie.Exception\RateMovie.Exception.csproj" />
+    <ProjectReference Include="..\RateMovie.Infrastructure\RateMovie.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

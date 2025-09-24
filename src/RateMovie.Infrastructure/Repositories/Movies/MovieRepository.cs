@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
-using RateMovie.Infraestructure.DataAccess;
+using RateMovie.Infrastructure.DataAccess;
 
-namespace RateMovie.Infraestructure.Repositories.Movies
+namespace RateMovie.Infrastructure.Repositories.Movies
 {
     internal class MovieRepository : 
         IMovieReadOnlyRepository,

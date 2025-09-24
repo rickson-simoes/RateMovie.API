@@ -4,11 +4,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
-using RateMovie.Infraestructure.DataAccess;
-using RateMovie.Infraestructure.Repositories.Movies;
-using RateMovie.Infraestructure.UnitOfWork;
+using RateMovie.Infrastructure.DataAccess;
+using RateMovie.Infrastructure.Repositories.Movies;
+using RateMovie.Infrastructure.UnitOfWork;
 
-namespace RateMovie.Infraestructure
+namespace RateMovie.Infrastructure
 {
     public static class DependencyInjectionInfra
     {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RateMovie.Domain.Entities;
 using System.Xml.Linq;
 
-namespace RateMovie.Infraestructure.DataAccess
+namespace RateMovie.Infrastructure.DataAccess
 {
     internal class RateMovieDBContext : DbContext
     {

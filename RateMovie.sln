@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36109.1 d17.14
+VisualStudioVersion = 17.14.36109.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.Api", "src\RateMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.Application", "src\RateMovie.Application\RateMovie.Application.csproj", "{2C2BD9FA-EE08-4EB2-AEC6-2C540AE59FA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.Infraestructure", "src\RateMovie.Infraestructure\RateMovie.Infraestructure.csproj", "{5BA0ADC3-F651-4048-B737-D1C9C8A30BB1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.Infrastructure", "src\RateMovie.Infrastructure\RateMovie.Infrastructure.csproj", "{5BA0ADC3-F651-4048-B737-D1C9C8A30BB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.Domain", "src\RateMovie.Domain\RateMovie.Domain.csproj", "{7D770E4D-A1FF-4E01-96DA-2A77C764D09E}"
 EndProject

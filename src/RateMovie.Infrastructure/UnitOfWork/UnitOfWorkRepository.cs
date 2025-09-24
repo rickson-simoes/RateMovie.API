@@ -1,7 +1,7 @@
 ﻿using RateMovie.Domain.Repositories.UnitOfWork;
-using RateMovie.Infraestructure.DataAccess;
+using RateMovie.Infrastructure.DataAccess;
 
-namespace RateMovie.Infraestructure.UnitOfWork
+namespace RateMovie.Infrastructure.UnitOfWork
 {
     internal class UnitOfWorkRepository : IUnitOfWorkRepository
     {

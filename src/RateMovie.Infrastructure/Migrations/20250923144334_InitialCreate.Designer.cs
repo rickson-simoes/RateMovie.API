@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RateMovie.Infraestructure.DataAccess;
+using RateMovie.Infrastructure.DataAccess;
 
 #nullable disable
 
-namespace RateMovie.Infraestructure.Migrations
+namespace RateMovie.Infrastructure.Migrations
 {
     [DbContext(typeof(RateMovieDBContext))]
     [Migration("20250923144334_InitialCreate")]
