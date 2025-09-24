@@ -63,19 +63,34 @@ It supports adding, listing, editing, and deleting movies, as well as generating
 
 ## 🖥️ Running Locally 
 
-Follow these steps to **run the API locally** with migrations and seed data:  
+Follow these steps to **run the API locally** with automatic migrations/seed data:
 
 1. **Install prerequisites:**  
    - **.NET 8.0 SDK**
-   - **MySQL 8.0.42** (or compatible)  
-   - **Entity Framework Core CLI tool**:  
-     ```bash
-     dotnet tool install --global dotnet-ef
-     ```  
-     > Note: This tool is required to run migrations and update the database. 
+   - **MySQL Server 8.0.42** (or compatible)
+   - Docker (Optional)
+  
+2. **Connecting to MySQL Server using Docker (OPTIONAL):**
+  - Download the Oficial MYSQL Docker Image: **mysql**
+<img width="372" height="85" alt="image" src="https://github.com/user-attachments/assets/0b5f9cc4-326e-4479-8ec8-6168d2e7f74e" />
+<br/>
 
-2. **Run this command in the project root to seed the database, as the migrations are already included:**  
+  - Create a Docker container for MySQL, use the following command to run the container with MySQL 8.0 (Debian) and map the default port:
    ```bash
-   dotnet ef database update --project src/RateMovie.Infraestructure --startup-project src/RateMovie.Api
-   ```
+   docker run --name mySqlApp -e MYSQL_ROOT_PASSWORD=YOURPASSWORD -p 3306:3306 -d mysql:8.0-debian
+   ```    
+
+3. **Update the **`appsettings.Development.json`** file (inside `src/RateMovie.Api/appsettings.Development.json`) with your local MySQL credentials.**
+```json
+{
+  "ConnectionStrings": {
+    "ConnectionMYSQL": "server=localhost;user=root;password=YOURPASSWORD;database=CashFlowDB"
+  }
+}
+```
+
+4. **Execute through the startup project RateMovie.Api**
+<br/>
+ <img width="205" height="45" alt="image" src="https://github.com/user-attachments/assets/d33a01cb-34f2-41af-9264-59095ce65fd2" />
+
 
