@@ -70,13 +70,13 @@ Follow these steps to **run the API locally** with automatic migrations/seed dat
    - **MySQL Server 8.0.42** (or compatible)
    - Docker (Optional)
   
-2. **Connecting to MySQL Server using Docker (OPTIONAL):**
-  - Download the Oficial MYSQL Docker Image: **mysql**
-<img width="372" height="85" alt="image" src="https://github.com/user-attachments/assets/0b5f9cc4-326e-4479-8ec8-6168d2e7f74e" />
-<br/>
+2. _**Installing/Connecting to MySQL Server using Docker (OPTIONAL):**_
+    - _Download the Oficial MYSQL Docker Image: **mysql**_
 
-  - Create a Docker container for MySQL, use the following command to run the container with MySQL 8.0 (Debian) and map the default port:
-   ```bash
+    [![image](https://github.com/user-attachments/assets/0b5f9cc4-326e-4479-8ec8-6168d2e7f74e)](https://hub.docker.com/_/mysql)
+
+    - Create a Docker container for MySQL, use the following command to run the container with MySQL 8.0 (Debian) and map the default port:
+   ```cmd   
    docker run --name mySqlApp -e MYSQL_ROOT_PASSWORD=YOURPASSWORD -p 3306:3306 -d mysql:8.0-debian
    ```    
 
