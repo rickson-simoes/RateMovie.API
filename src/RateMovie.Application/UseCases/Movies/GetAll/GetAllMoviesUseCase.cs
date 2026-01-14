@@ -1,4 +1,4 @@
-﻿using RateMovie.Application.MovieMapper;
+﻿using RateMovie.Application.Mapper;
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Repositories.Movies;
 
