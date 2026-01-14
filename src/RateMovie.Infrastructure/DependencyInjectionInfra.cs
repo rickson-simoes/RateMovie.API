@@ -2,10 +2,14 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using RateMovie.Domain.PasswordHasher;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
+using RateMovie.Domain.Repositories.Users;
 using RateMovie.Infrastructure.DataAccess;
+using RateMovie.Infrastructure.PasswordHasher;
 using RateMovie.Infrastructure.Repositories.Movies;
+using RateMovie.Infrastructure.Repositories.Users;
 using RateMovie.Infrastructure.UnitOfWork;
 
 namespace RateMovie.Infrastructure
@@ -21,10 +25,16 @@ namespace RateMovie.Infrastructure
         private static void DependencyInjectionScoped(IServiceCollection service)
         {
             service.AddScoped<IUnitOfWorkRepository, UnitOfWorkRepository>();
+
+            service.AddScoped<IPasswordHasherBCrypt, PasswordHasherBcrypt>();
+
             service.AddScoped<IMovieWriteOnlyRepository, MovieRepository>();
             service.AddScoped<IMovieReadOnlyRepository, MovieRepository>();
             service.AddScoped<IMovieUpdateOnlyRepository, MovieRepository>();
             service.AddScoped<IMovieDeleteOnlyRepository, MovieRepository>();
+
+            service.AddScoped<IUserWriteOnlyRepository, UserRepository>();
+            service.AddScoped<IUserReadOnlyRepository, UserRepository>();
         }
 
         private static void DependencyInjectionDbContext(IServiceCollection service, IConfiguration config)

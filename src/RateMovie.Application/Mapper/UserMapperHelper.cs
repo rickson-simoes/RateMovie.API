@@ -1,4 +1,5 @@
 ﻿using RateMovie.Communication.Requests;
+using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;
 
 namespace RateMovie.Application.Mapper
@@ -12,6 +13,16 @@ namespace RateMovie.Application.Mapper
                 Name = req.Name,
                 Email = req.Email,
                 Password = req.Password
+            };
+        }
+
+        public static ResponseAddUserJson ResponseAddUserJsonToUser(this User req, string token)
+        {
+            return new ResponseAddUserJson
+            {
+                Name = req.Name,
+                Email = req.Email,
+                Token = token
             };
         }
     }
