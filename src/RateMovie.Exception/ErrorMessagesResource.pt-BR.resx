@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>E-mail inválido, favor, inserir um e-mail válido.</value>
+  </data>
   <data name="MOVIE_COMMENT_MAX_CHARACTER_LENGTH" xml:space="preserve">
     <value>O comentário do filme não deve exceder 700 caracteres</value>
   </data>
@@ -131,6 +134,12 @@
   </data>
   <data name="NAME_CANT_BE_NULL" xml:space="preserve">
     <value>Nome não pode ser nulo</value>
+  </data>
+  <data name="NAME_EMPTY" xml:space="preserve">
+    <value>Nome não pode ser vazio</value>
+  </data>
+  <data name="PASSWORD_INVALID" xml:space="preserve">
+    <value>Senha inválida. Certifique-se de que ela contenha 1 número, 1 letra maiúscula, 1 letra minúscula, pelo menos um caractere especial: !@#$%¨&amp;*() e no mínimo 8 caracteres</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro desconhecido</value>

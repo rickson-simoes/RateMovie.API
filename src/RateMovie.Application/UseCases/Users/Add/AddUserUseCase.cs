@@ -10,7 +10,5 @@ namespace RateMovie.Application.UseCases.Users.Add
             
             return new ResponseAddUserJson(); 
         }
-
-
     }
 }

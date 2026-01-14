@@ -61,6 +61,15 @@ namespace RateMovie.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid email, please insert a valid one..
+        /// </summary>
+        public static string EMAIL_INVALID {
+            get {
+                return ResourceManager.GetString("EMAIL_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Movie comment must not exceed 700 characters.
         /// </summary>
         public static string MOVIE_COMMENT_MAX_CHARACTER_LENGTH {
@@ -102,6 +111,24 @@ namespace RateMovie.Exception {
         public static string NAME_CANT_BE_NULL {
             get {
                 return ResourceManager.GetString("NAME_CANT_BE_NULL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name can&apos;t be empty..
+        /// </summary>
+        public static string NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("NAME_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password invalid, please make sure you have 1 number, 1 uppercase letter, 1 downcase letter, at least one special character: !@#$%¨&amp;*() and min: 8 characters.
+        /// </summary>
+        public static string PASSWORD_INVALID {
+            get {
+                return ResourceManager.GetString("PASSWORD_INVALID", resourceCulture);
             }
         }
         
