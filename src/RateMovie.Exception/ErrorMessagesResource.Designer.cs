@@ -115,7 +115,7 @@ namespace RateMovie.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name can&apos;t be empty..
+        ///   Looks up a localized string similar to Name can&apos;t be empty.
         /// </summary>
         public static string NAME_EMPTY {
             get {
@@ -124,7 +124,7 @@ namespace RateMovie.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password invalid, please make sure you have 1 number, 1 uppercase letter, 1 downcase letter, at least one special character: !@#$%¨&amp;*() and min: 8 characters.
+        ///   Looks up a localized string similar to Password does not meet the required security criteria. Please ensure it contains at least one number, one uppercase letter, one lowercase letter, one special character (!@#$%¨&amp;*()), and a minimum of 8 characters.
         /// </summary>
         public static string PASSWORD_INVALID {
             get {

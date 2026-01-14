@@ -139,7 +139,7 @@
     <value>Nome não pode ser vazio</value>
   </data>
   <data name="PASSWORD_INVALID" xml:space="preserve">
-    <value>Senha inválida. Certifique-se de que ela contenha 1 número, 1 letra maiúscula, 1 letra minúscula, pelo menos um caractere especial: !@#$%¨&amp;*() e no mínimo 8 caracteres</value>
+    <value>A senha não atende aos critérios de segurança exigidos. Certifique-se de que contenha ao menos um número, uma letra maiúscula, uma letra minúscula, um caractere especial (!@#$%¨&amp;*()) e no mínimo 8 caracteres</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro desconhecido</value>
