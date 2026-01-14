@@ -26,7 +26,7 @@ namespace RateMovie.Infrastructure
         {
             service.AddScoped<IUnitOfWorkRepository, UnitOfWorkRepository>();
 
-            service.AddScoped<IPasswordHasherBCrypt, PasswordHasherBcrypt>();
+            service.AddScoped<IPasswordHasher, PasswordHasherBcrypt>();
 
             service.AddScoped<IMovieWriteOnlyRepository, MovieRepository>();
             service.AddScoped<IMovieReadOnlyRepository, MovieRepository>();

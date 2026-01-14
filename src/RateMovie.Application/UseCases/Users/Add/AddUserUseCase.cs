@@ -15,13 +15,13 @@ namespace RateMovie.Application.UseCases.Users.Add
         private readonly IUnitOfWorkRepository _unitOfWork;
         private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
         private readonly IUserReadOnlyRepository _userReadOnlyRepository;
-        private readonly IPasswordHasherBCrypt _passwordHasher;
+        private readonly IPasswordHasher _passwordHasher;
 
         public AddUserUseCase(
             IUnitOfWorkRepository unitOfWork, 
             IUserWriteOnlyRepository userWriteOnlyRepository,
             IUserReadOnlyRepository userReadOnlyRepository,
-            IPasswordHasherBCrypt passwordHasher)
+            IPasswordHasher passwordHasher)
         {
             _userWriteOnlyRepository = userWriteOnlyRepository;
             _userReadOnlyRepository = userReadOnlyRepository;

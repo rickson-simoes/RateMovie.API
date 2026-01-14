@@ -2,7 +2,7 @@
 
 namespace RateMovie.Infrastructure.PasswordHasher
 {
-    internal class PasswordHasherBcrypt : IPasswordHasherBCrypt
+    internal class PasswordHasherBcrypt : IPasswordHasher
     {
         public string HashPassword(string password)
         {
