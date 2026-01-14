@@ -61,6 +61,15 @@ namespace RateMovie.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email already exists in our database.
+        /// </summary>
+        public static string EMAIL_ALREADY_EXISTS {
+            get {
+                return ResourceManager.GetString("EMAIL_ALREADY_EXISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid email, please insert a valid one..
         /// </summary>
         public static string EMAIL_INVALID {

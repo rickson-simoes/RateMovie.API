@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
+    <value>Email ja é existente no nosso banco de dados</value>
+  </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
-    <value>E-mail inválido, favor, inserir um e-mail válido.</value>
+    <value>Email inválido, favor, inserir um e-mail válido.</value>
   </data>
   <data name="MOVIE_COMMENT_MAX_CHARACTER_LENGTH" xml:space="preserve">
     <value>O comentário do filme não deve exceder 700 caracteres</value>
