@@ -6,6 +6,7 @@ using RateMovie.Application.UseCases.Movies.GetById;
 using RateMovie.Application.UseCases.Movies.Update;
 using RateMovie.Application.UseCases.Reports.GenerateMoviesExcel;
 using RateMovie.Application.UseCases.Reports.GenerateMoviesPdf;
+using RateMovie.Application.UseCases.Users.Add;
 
 namespace RateMovie.Application
 {
@@ -13,6 +14,8 @@ namespace RateMovie.Application
     {
         public static void DependencyInjectionExtensionApp(this IServiceCollection service)
         {
+            service.AddScoped<IAddUserUseCase, AddUserUseCase>();
+
             service.AddScoped<IAddMovieUseCase, AddMovieUseCase>();
             service.AddScoped<IGetAllMoviesUseCase, GetAllMoviesUseCase>();
             service.AddScoped<IUpdateMovieUseCase, UpdateMovieUseCase>();
