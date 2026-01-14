@@ -20,11 +20,8 @@ namespace RateMovie.Api.Middlewares
             {
                 cultureInfoLanguage = new CultureInfo(headerLanguage);
             }
-
-            // how values are displayed and interpreted
-            CultureInfo.CurrentCulture = cultureInfoLanguage;
-
-            // which language the user will see the messages in.
+            
+            CultureInfo.CurrentCulture = cultureInfoLanguage;            
             CultureInfo.CurrentUICulture = cultureInfoLanguage;
 
             await _next(context);
