@@ -43,7 +43,7 @@ namespace RateMovie.Infrastructure.DataAccess
 
             entity.Property(u => u.Email)
                 .HasMaxLength(100)
-                .IsRequired(false);
+                .IsRequired(true);
 
             entity.Property(u => u.Password)
                 .HasMaxLength(300)
