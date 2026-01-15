@@ -1,9 +1,13 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.IdentityModel.Tokens;
 using RateMovie.Api.Filters;
 using RateMovie.Api.Middlewares;
 using RateMovie.Api.PackagesConfigurations;
 using RateMovie.Application;
 using RateMovie.Infrastructure;
 using RateMovie.Infrastructure.Migrations;
+using System.Text;
 
 namespace RateMovie.Api
 {
@@ -16,6 +20,24 @@ namespace RateMovie.Api
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //Authentication.JwtBearer Config
+            builder.Services.AddAuthentication(config =>
+            {
+                config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(config =>
+            {
+                var signingKey = builder.Configuration.GetValue<string>("TokenSettings:JWT:SigningKey")!;
+
+                config.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(signingKey))
+                };
+            });
 
             // MVC Options: Exception Filter
             builder.Services.AddMvc(options => options.Filters.Add(typeof(RateMovieExceptionFilter)));
@@ -48,7 +70,11 @@ namespace RateMovie.Api
             app.UseMiddleware<LanguageMiddleware>();
 
             app.UseHttpsRedirection();
+
+            // Auth
+            app.UseAuthentication();
             app.UseAuthorization();
+
             app.MapControllers();
 
             await app.RunAsync();
