@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using RateMovie.Application.UseCases.Login;
 using RateMovie.Application.UseCases.Movies.Add;
 using RateMovie.Application.UseCases.Movies.Delete;
 using RateMovie.Application.UseCases.Movies.GetAll;
@@ -14,6 +15,8 @@ namespace RateMovie.Application
     {
         public static void DependencyInjectionExtensionApp(this IServiceCollection service)
         {
+            service.AddScoped<ILoginUseCase, LoginUseCase>();
+
             service.AddScoped<IAddUserUseCase, AddUserUseCase>();
 
             service.AddScoped<IAddMovieUseCase, AddMovieUseCase>();
