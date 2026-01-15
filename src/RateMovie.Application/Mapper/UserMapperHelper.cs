@@ -6,7 +6,7 @@ namespace RateMovie.Application.Mapper
 {
     public static class UserMapperHelper
     {
-        public static User RequestAddUserJsonToUser(this RequestAddUserJson req)
+        public static User ToUser(this RequestAddUserJson req)
         {
             return new User
             {
@@ -16,7 +16,7 @@ namespace RateMovie.Application.Mapper
             };
         }
 
-        public static ResponseAddUserJson ResponseAddUserJsonToUser(this User req, string token)
+        public static ResponseAddUserJson ToResponseAddUserJson(this User req, string token)
         {
             return new ResponseAddUserJson
             {
