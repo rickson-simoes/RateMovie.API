@@ -79,6 +79,15 @@ namespace RateMovie.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email or password invalid.
+        /// </summary>
+        public static string EMAIL_OR_PASSWORD_INVALID {
+            get {
+                return ResourceManager.GetString("EMAIL_OR_PASSWORD_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Movie comment must not exceed 700 characters.
         /// </summary>
         public static string MOVIE_COMMENT_MAX_CHARACTER_LENGTH {

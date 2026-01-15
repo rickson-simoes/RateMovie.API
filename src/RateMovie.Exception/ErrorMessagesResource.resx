@@ -123,6 +123,9 @@
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>Invalid email, please insert a valid one.</value>
   </data>
+  <data name="EMAIL_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>Email or password invalid</value>
+  </data>
   <data name="MOVIE_COMMENT_MAX_CHARACTER_LENGTH" xml:space="preserve">
     <value>Movie comment must not exceed 700 characters</value>
   </data>
