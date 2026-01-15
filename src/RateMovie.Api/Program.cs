@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using RateMovie.Api.Filters;
 using RateMovie.Api.Middlewares;
 using RateMovie.Api.PackagesConfigurations;
@@ -19,7 +19,34 @@ namespace RateMovie.Api
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+
+            // Swagger Auth
+            builder.Services.AddSwaggerGen(config =>
+            {
+                config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Description = @"JWT Authorization Header using Bearer scheme. Example:'Bearer YoUrAw3sOmEjWtT0k3n'",
+                    In = ParameterLocation.Header,
+                    Scheme = "Bearer",
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                config.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                        },
+                        new List<string>()
+                    }
+                });
+            });
 
             //Authentication.JwtBearer Config
             builder.Services.AddAuthentication(config =>

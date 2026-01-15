@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RateMovie.Application.UseCases.Movies.Add;
 using RateMovie.Application.UseCases.Movies.Delete;
 using RateMovie.Application.UseCases.Movies.GetAll;
@@ -11,6 +12,8 @@ namespace RateMovie.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class MoviesController : ControllerBase
     {
 

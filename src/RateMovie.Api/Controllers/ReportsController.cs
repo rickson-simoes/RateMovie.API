@@ -7,6 +7,7 @@ namespace RateMovie.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize(Roles = nameof(UserRole.Vip))]
     public class ReportsController : ControllerBase
     {
         [HttpGet]
