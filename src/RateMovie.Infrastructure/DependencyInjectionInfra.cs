@@ -6,10 +6,12 @@ using RateMovie.Domain.PasswordHasher;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
 using RateMovie.Domain.Repositories.Users;
+using RateMovie.Domain.TokenGenerator;
 using RateMovie.Infrastructure.DataAccess;
 using RateMovie.Infrastructure.PasswordHasher;
 using RateMovie.Infrastructure.Repositories.Movies;
 using RateMovie.Infrastructure.Repositories.Users;
+using RateMovie.Infrastructure.TokenGenerator;
 using RateMovie.Infrastructure.UnitOfWork;
 
 namespace RateMovie.Infrastructure
@@ -19,14 +21,18 @@ namespace RateMovie.Infrastructure
         public static void DependencyInjectionExtensionInfra(this IServiceCollection service, IConfiguration config)
         {
             DependencyInjectionDbContext(service, config);
-            DependencyInjectionScoped(service);
+            DependencyInjectionScoped(service, config);
         }
 
-        private static void DependencyInjectionScoped(IServiceCollection service)
+        private static void DependencyInjectionScoped(IServiceCollection service, IConfiguration config)
         {
             service.AddScoped<IUnitOfWorkRepository, UnitOfWorkRepository>();
 
             service.AddScoped<IPasswordHasher, PasswordHasherBcrypt>();
+        
+            var signingKey = config.GetValue<string>("TokenSettings:JWT:SigningKey")!;
+            var minutesToExpire = config.GetValue<int>("TokenSettings:JWT:MinutesToExpire");
+            service.AddScoped<ITokenGenerator>(_ => new TokenGeneratorJWT(signingKey, minutesToExpire));
 
             service.AddScoped<IMovieWriteOnlyRepository, MovieRepository>();
             service.AddScoped<IMovieReadOnlyRepository, MovieRepository>();
@@ -39,14 +45,13 @@ namespace RateMovie.Infrastructure
 
         private static void DependencyInjectionDbContext(IServiceCollection service, IConfiguration config)
         {
-            var version = new Version(8, 0, 42);
-            var mySqlVersion = new MySqlServerVersion(version);
             var connectionString = config.GetConnectionString("ConnectionDBMySql");
+            var serverVersion = ServerVersion.AutoDetect(connectionString);
 
             service.AddDbContext<RateMovieDBContext>(opt =>
             {
                 opt
-                .UseMySql(connectionString, mySqlVersion)
+                .UseMySql(connectionString, serverVersion)
                 .LogTo(Console.WriteLine, LogLevel.Information);
             });
         }
