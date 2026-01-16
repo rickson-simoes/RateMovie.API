@@ -1,8 +1,8 @@
 ﻿using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;
-using RateMovie.Domain.PasswordHasher;
 using RateMovie.Domain.Repositories.Users;
-using RateMovie.Domain.TokenGenerator;
+using RateMovie.Domain.Security.PasswordHasher;
+using RateMovie.Domain.Security.TokenGenerator;
 using RateMovie.Exception;
 using RateMovie.Exception.RateMovieExceptions;
 

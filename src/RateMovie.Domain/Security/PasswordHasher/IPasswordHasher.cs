@@ -1,4 +1,4 @@
-﻿namespace RateMovie.Domain.PasswordHasher
+﻿namespace RateMovie.Domain.Security.PasswordHasher
 {
     public interface IPasswordHasher
     {

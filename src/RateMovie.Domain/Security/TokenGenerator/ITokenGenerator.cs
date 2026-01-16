@@ -1,6 +1,6 @@
 ﻿using RateMovie.Domain.Entities;
 
-namespace RateMovie.Domain.TokenGenerator
+namespace RateMovie.Domain.Security.TokenGenerator
 {
     public interface ITokenGenerator
     {

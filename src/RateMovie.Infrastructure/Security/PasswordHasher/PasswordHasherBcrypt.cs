@@ -1,6 +1,6 @@
-﻿using RateMovie.Domain.PasswordHasher;
+﻿using RateMovie.Domain.Security.PasswordHasher;
 
-namespace RateMovie.Infrastructure.PasswordHasher
+namespace RateMovie.Infrastructure.Security.PasswordHasher
 {
     internal class PasswordHasherBcrypt : IPasswordHasher
     {

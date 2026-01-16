@@ -1,11 +1,10 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using RateMovie.Domain.Entities;
-using RateMovie.Domain.TokenGenerator;
+using RateMovie.Domain.Security.TokenGenerator;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Text;
 
-namespace RateMovie.Infrastructure.TokenGenerator
+namespace RateMovie.Infrastructure.Security.TokenGenerator
 {
     public class TokenGeneratorJWT : ITokenGenerator
     {
@@ -24,8 +23,8 @@ namespace RateMovie.Infrastructure.TokenGenerator
 
             Dictionary<string, object> claims =  new ()
             {
-                { ClaimTypes.Role, user.Role.ToString() },
-                { ClaimTypes.Email, user.Email }
+                { TokenGeneratorTypes.ROLE, user.Role.ToString() },
+                { TokenGeneratorTypes.EMAIL, user.Email }
             };
 
             var descriptor = new SecurityTokenDescriptor

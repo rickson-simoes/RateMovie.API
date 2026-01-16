@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using RateMovie.Api.Contexts;
 using RateMovie.Api.Filters;
 using RateMovie.Api.Middlewares;
 using RateMovie.Api.PackagesConfigurations;
 using RateMovie.Application;
+using RateMovie.Domain.Security.AccessTokenProvider;
 using RateMovie.Infrastructure;
 using RateMovie.Infrastructure.Migrations;
 using System.Text;
@@ -79,6 +81,10 @@ namespace RateMovie.Api
 
             // Dependency Injection: Application layer
             builder.Services.DependencyInjectionExtensionApp();
+
+            // Dependency Injection: Context Accessors
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddScoped<IAccessTokenProvider, AccessTokenProvider>();
 
             // QuestPDF: Settings
             QuestPdfConfig.QuestPdfSettings();
