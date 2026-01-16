@@ -52,12 +52,11 @@ This API uses **ASP.NET Core Identity** combined with **JWT Bearer Tokens** to p
 Swagger (OpenAPI 3.0) is enabled and fully configured to support JWT authentication.
 
 ### Usage:
-1. Call `/api/Login` to obtain a token
-2. Click **Authorize** in Swagger UI
-3. Paste the token using the `Bearer` scheme
-4. Access secured endpoints directly from Swagger
-
-Swagger acts both as documentation and an interactive API client.
+1. Create an user through `/api/users`
+2. Call `/api/Login` to obtain a token
+3. Click **Authorize** in Swagger UI
+4. Paste the token using the `Bearer YoUrAw3s0m3T0k3nJWT` scheme
+5. Access secured endpoints directly from Swagger.
 
 
 ### 📃 Swagger Preview
