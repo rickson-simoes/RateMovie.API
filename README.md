@@ -1,26 +1,67 @@
-# 🎬 Movie.API  
-An ASP.NET Core application designed with Domain-Driven Design (DDD) principles to manage movie critics.
-It supports adding, listing, editing, and deleting movies, as well as generating PDF and Excel reports.
+# 🎬 Movie.API
+
+**Movie.API** is an ASP.NET Core Web API built using **Domain-Driven Design (DDD)** principles, focused on managing movie ratings and reviews with proper authentication, authorization, and reporting capabilities.
+Users can create accounts, authenticate, and perform full CRUD operations on movies. Certain features, such as report generation, are restricted to privileged users via role-based authorization.
+
+---
 
 ## 🚀 Features
 
-### ✅ Implemented
-- **GET /movies** → Returns all registered movies.
-- **GET By Id /movies/{id}** → Returns all registered movies. 
-- **POST /movies** → Adds a new movie.
-- **PUT /movies/{id}** → Edit an existing movie.
-- **DELETE /movies/{id}** → Delete a movie.  
-- **Reports** If the stars query parameter is provided (1–5), the report will only include movies with that rating; otherwise, it will include all rated movies.:
-  - **GET /api/Reports/movies-excel?stars={1-5}** → Generates an **Excel** report of movies.  
-  - **GET /api/Reports/movies-pdf?stars={1-5}** → Generates a **PDF** report of movies.
+- User registration and authentication
+- JWT-based authentication with ASP.NET Core Identity
+- Role-based authorization (e.g. **VIP** users)
+- CRUD operations for movies
+- PDF and Excel report generation (VIP only)
+- Swagger UI configured with JWT Authorization
+- Clean and layered architecture (DDD-oriented)
 
+---
+
+## 📦 Endpoints Overview
+
+### Authentication
+- `POST /api/Login` – Authenticate and receive a JWT token
+
+### Users
+- `POST /api/Users` – Create a new user
+
+### Movies
+- `GET /api/Movies` - 🔜 (Updates incomming)
+- `GET /api/Movies/{id}` - 🔜 (Updates incomming)
+- `POST /api/Movies` 
+- `PUT /api/Movies/{id}` - 🔜 (Updates incomming)
+- `DELETE /api/Movies/{id}` - 🔜 (Updates incomming)
+
+### Reports (VIP only)
+- `GET /api/Reports/movies-pdf` - 🔜 (Updates incomming)
+- `GET /api/Reports/movies-excel` - 🔜 (Updates incomming)
+
+---
+
+## 🔐 Authentication & Authorization
+
+This API uses **ASP.NET Core Identity** combined with **JWT Bearer Tokens** to provide a secure authentication.
+
+### Authentication Flow
+1. User logs in via `/api/Login`
+2. A JWT token is generated and returned
+3. The token must be sent in the `Authorization` header.
+
+## 🧪 Swagger (OpenAPI)
+
+Swagger (OpenAPI 3.0) is enabled and fully configured to support JWT authentication.
+
+### Usage:
+1. Call `/api/Login` to obtain a token
+2. Click **Authorize** in Swagger UI
+3. Paste the token using the `Bearer` scheme
+4. Access secured endpoints directly from Swagger
+
+Swagger acts both as documentation and an interactive API client.
 
 
 ### 📃 Swagger Preview
-<img width="1290" height="1051" alt="image" src="https://github.com/user-attachments/assets/54d7a207-a954-4b1f-8c53-ca714fefbb10" />
-
-**Response types at each request**:
-<img width="906" height="938" alt="image" src="https://github.com/user-attachments/assets/73996564-fb0f-4396-b986-ac0c557462e6" />
+<img width="1307" height="886" alt="image" src="https://github.com/user-attachments/assets/81aef4ee-9fc3-4a5b-85d1-c1bbe1d11df0" />
 
 ### 📃 Excel Preview
 <img width="970" height="501" alt="image" src="https://github.com/user-attachments/assets/afdb2b13-4686-4aae-a78c-ec5842f572c8" />
@@ -35,11 +76,16 @@ It supports adding, listing, editing, and deleting movies, as well as generating
 - **ASP.NET Core** – API development.
 - **MySQL** – Database for persistence.
 - **Entity Framework Core** – Modern ORM for .NET, used for database access, migrations, and data management.
-- **Pomelo.EF Core. MySql**
+- **MySql** - DB
 - **xUnit** – Unit and integration testing.
+- (Soon) **Shoudly** - Tests assertion.
+- (Soon) **MOQ** - Tests assertion.
+- (Soon) **EF Core In Memory** - In Memoby DB for integration testing
 - **Bogus** – Fake data generation for testing scenarios.
 - **ClosedXML** - Generates a custom Excel.
 - **QuestPDF** - Generates a custom PDF.
+- **JWT Bearer Authentication**
+- **Swagger**
 
 ## 📂 Architecture
 - **Domain** → Entities, aggregates, and business rules.  
@@ -47,7 +93,13 @@ It supports adding, listing, editing, and deleting movies, as well as generating
 - **Infrastructure** → Concrete implementations (repositories, persistence, MySQL integration).  
 - **Presentation (API)** → Controllers, middlewares, and endpoints.
 - **Communication** → Defines **DTOs (Data Transfer Objects)** for handling input (requests) and output (responses), ensuring separation between API contracts and domain models.  
-- **Exception Handling** → Centralized management of errors, including exception filters, standardized error messages, and resource files for multi-language support.  
+- **Exception Handling** → Centralized management of errors, including exception filters, standardized error messages, and resource files for multi-language support.
+
+### Authorization
+- Claims and roles are embedded in the JWT
+- Endpoints are protected using `[Authorize]`
+- Role-based access is enforced using `[Authorize(Roles = "Vip")]`
+No cookies or sessions are used.
 
 ### 🎭 Exception Filters
 - Centralized error handling with standardized responses.  
@@ -59,10 +111,18 @@ It supports adding, listing, editing, and deleting movies, as well as generating
 
 ## 🧪 Testing
 - **Unit Tests**: validated with **xUnit**, ensuring business rules work in isolation.
-- **Bogus**: generates fake data to simulate real-world scenarios.  
+- **Bogus**: generates fake data to simulate real-world scenarios.
+
+❗ Upcoming testing improvements include:
+- Unit tests using in-memory providers
+- Integration tests with in-memory databases
+- Coverage for:
+  - Domain logic
+  - Application services
+  - Authentication and authorization flows
+  - API controllers
 
 ## 🖥️ Running Locally 
-
 Follow these steps to **run the API locally** with automatic migrations/seed data:
 
 1. **Install prerequisites:**  
