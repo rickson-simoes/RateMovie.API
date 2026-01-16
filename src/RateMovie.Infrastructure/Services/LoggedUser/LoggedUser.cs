@@ -20,7 +20,7 @@ namespace RateMovie.Infrastructure.Services.LoggedUser
 
             var userEmail = token.Claims.First(claim => claim.Type == TokenGeneratorTypes.EMAIL).Value;
 
-            var user = await _dbContext.Users.FirstAsync(user => user.Email == userEmail);
+            var user = await _dbContext.Users.AsNoTracking().FirstAsync(user => user.Email == userEmail);
 
             return user;
         }
