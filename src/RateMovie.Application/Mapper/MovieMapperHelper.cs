@@ -19,13 +19,15 @@ namespace RateMovie.Application.Mapper
             };
         }
 
-        public static ResponseMovieJson ToResponseMovieJson(this Movie requestMovie)
+        public static ResponseMovieJson ToResponseMovieJson(this Movie movie)
         {
             return new ResponseMovieJson
             {
-                Name = requestMovie.Name,
-                Comment = requestMovie.Comment,
-                Stars = requestMovie.Stars,
+                Name = movie.Name,
+                Comment = movie.Comment,
+                Stars = movie.Stars,
+                Genre = (Communication.Enum.MovieGenre)movie.Genre,
+                CreatedAt = movie.CreatedAt,
             };
         }
 
@@ -36,16 +38,34 @@ namespace RateMovie.Application.Mapper
                Name = requestMovie.Name,
                Comment = requestMovie.Comment,
                Stars = requestMovie.Stars,
+               Genre = requestMovie.Genre,
+               CreatedAt = requestMovie.CreatedAt,
             };
         }
 
-        public static Movie ToMovieEntity(this ResponseMovieJson responseMovie)
+        public static Movie ToMovieEntity(this ResponseMovieJson responseMovie, int userId)
         {
             return new Movie
             {
                 Name = responseMovie.Name,
                 Comment = responseMovie.Comment,
-                Stars = responseMovie.Stars
+                Stars = responseMovie.Stars,
+                Genre = (Domain.Enum.MovieGenre)responseMovie.Genre,
+                CreatedAt = responseMovie.CreatedAt,
+                UserId = userId
+            };
+        }
+
+        public static Movie ToMovieEntity(this RequestMovieJson requestMovie, int userId)
+        {
+            return new Movie
+            {
+                Name = requestMovie.Name,
+                Comment = requestMovie.Comment,
+                Stars = requestMovie.Stars,
+                Genre = (Domain.Enum.MovieGenre)requestMovie.Genre,
+                CreatedAt = requestMovie.CreatedAt,
+                UserId = userId
             };
         }
 

@@ -4,6 +4,7 @@ using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
+using RateMovie.Domain.Services;
 
 namespace RateMovie.Application.UseCases.Movies.Add
 {
@@ -11,24 +12,35 @@ namespace RateMovie.Application.UseCases.Movies.Add
     {
         private readonly IMovieWriteOnlyRepository _movieRepository;
         private readonly IUnitOfWorkRepository _unitOfWork;
+        private readonly ILoggedUser _loggedUser;
 
-        public AddMovieUseCase(IMovieWriteOnlyRepository movieRepository, IUnitOfWorkRepository unitOfWork)
+        public AddMovieUseCase(
+            IMovieWriteOnlyRepository movieRepository,
+            IUnitOfWorkRepository unitOfWork,
+            ILoggedUser loggedUser)
         {
             _movieRepository = movieRepository;
             _unitOfWork = unitOfWork;
+            _loggedUser = loggedUser;
         }
 
         public async Task<ResponseMovieJson> Execute(RequestMovieJson request)
         {
-            new MoviesValidatorHandler().RequestMovie(request);
+            var loggedUser = await _loggedUser.Get();
 
-            ResponseMovieJson response = request.ToResponseMovieJson();
-            Movie movieEntity = response.ToMovieEntity();
+            // @TODO: Remove this validator
+            new MoviesValidatorHandler().RequestMovie(request);            
+
+            Movie movieEntity = request.ToMovieEntity(loggedUser.Id);
 
             await _movieRepository.Add(movieEntity);
             await _unitOfWork.Commit();
 
+            ResponseMovieJson response = request.ToResponseMovieJson();
+
             return response;
         }
+
+        // @TODO: Create new validator with fluent validation for movies
     }
 }

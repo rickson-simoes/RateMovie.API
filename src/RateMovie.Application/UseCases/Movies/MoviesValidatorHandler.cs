@@ -6,6 +6,7 @@ namespace RateMovie.Application.UseCases.Movies
 {
     public class MoviesValidatorHandler
     {
+        // @TODO: Create a new Fluent Validation handler
         public void RequestMovie(RequestMovieJson request)
         {
             List<string> errors = [];
