@@ -26,15 +26,15 @@ Users can create accounts, authenticate, and perform full CRUD operations on mov
 - `POST /api/Users` – Create a new user
 
 ### Movies
-- `GET /api/Movies` - 🔜 (Updates incomming)
-- `GET /api/Movies/{id}` - 🔜 (Updates incomming)
+- `GET /api/Movies` - 🔜 (Updates incomming - No auth yet)
+- `GET /api/Movies/{id}` - 🔜 (Updates incomming - No auth yet)
 - `POST /api/Movies` 
-- `PUT /api/Movies/{id}` - 🔜 (Updates incomming)
-- `DELETE /api/Movies/{id}` - 🔜 (Updates incomming)
+- `PUT /api/Movies/{id}` - 🔜 (Updates incomming - No auth yet)
+- `DELETE /api/Movies/{id}` - 🔜 (Updates incomming - No auth yet)
 
 ### Reports (VIP only)
-- `GET /api/Reports/movies-pdf` - 🔜 (Updates incomming)
-- `GET /api/Reports/movies-excel` - 🔜 (Updates incomming)
+- `GET /api/Reports/movies-pdf` - 🔜 (Updates incomming - No auth yet) 
+- `GET /api/Reports/movies-excel` - 🔜 (Updates incomming - No auth yet) 
 
 ---
 
