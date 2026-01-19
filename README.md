@@ -28,7 +28,7 @@ Users can create accounts, authenticate, and perform full CRUD operations on mov
 ### Movies
 - `GET /api/Movies` - 🔜 (Updates incomming - No auth yet)
 - `GET /api/Movies/{id}` - 🔜 (Updates incomming - No auth yet)
-- `POST /api/Movies` 
+- `POST /api/Movies` ✅
 - `PUT /api/Movies/{id}` - 🔜 (Updates incomming - No auth yet)
 - `DELETE /api/Movies/{id}` - 🔜 (Updates incomming - No auth yet)
 
