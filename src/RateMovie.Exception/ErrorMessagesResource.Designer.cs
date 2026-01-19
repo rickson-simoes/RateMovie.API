@@ -70,6 +70,15 @@ namespace RateMovie.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email Field Is Required.
+        /// </summary>
+        public static string EMAIL_EMPTY {
+            get {
+                return ResourceManager.GetString("EMAIL_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid email, please insert a valid one..
         /// </summary>
         public static string EMAIL_INVALID {

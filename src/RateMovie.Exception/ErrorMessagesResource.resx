@@ -120,6 +120,9 @@
   <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
     <value>Email already exists in our database</value>
   </data>
+  <data name="EMAIL_EMPTY" xml:space="preserve">
+    <value>Email Field Is Required</value>
+  </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>Invalid email, please insert a valid one.</value>
   </data>

@@ -10,7 +10,12 @@ namespace RateMovie.Application.UseCases.Users.Add
         {
             RuleFor(u => u.Name).NotEmpty().WithMessage(ErrorMessagesResource.NAME_EMPTY);
 
-            RuleFor(u => u.Email).EmailAddress().WithMessage(ErrorMessagesResource.EMAIL_INVALID);
+            RuleFor(u => u.Email)
+                .NotEmpty()
+                .WithMessage(ErrorMessagesResource.EMAIL_EMPTY)
+                .EmailAddress()
+                .When(e => string.IsNullOrWhiteSpace(e.Email) == false, ApplyConditionTo.CurrentValidator)
+                .WithMessage(ErrorMessagesResource.EMAIL_INVALID);
 
             RuleFor(u => u.Password).SetValidator(new PasswordValidator<RequestAddUserJson>());
         }
