@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using RateMovie.Communication.Requests;
 
-namespace Tests.CommonUtilities.BogusMovieValidator
+namespace Tests.CommonUtilities.Requests
 {
     public class RequestMovieDataBuilder
     {
