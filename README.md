@@ -20,10 +20,10 @@ Users can create accounts, authenticate, and perform full CRUD operations on mov
 ## 📦 Endpoints Overview
 
 ### Authentication
-- `POST /api/Login` – Authenticate and receive a JWT token
+- `POST /api/Login` – Authenticate and receive a JWT token ✅
 
 ### Users
-- `POST /api/Users` – Create a new user
+- `POST /api/Users` – Create a new user ✅
 
 ### Movies
 - `GET /api/Movies` - 🔜 (Updates incomming - No auth yet)
