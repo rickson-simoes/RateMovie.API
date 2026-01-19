@@ -1,12 +1,14 @@
 ﻿using RateMovie.Application.UseCases.Movies;
 using RateMovie.Exception;
 using RateMovie.Exception.RateMovieExceptions;
-using Tests.CommonUtilities.BogusMovieValidator;
+using Tests.CommonUtilities.Requests;
 
 namespace Tests.RateMovieApp.Movies.UnitTests
 {
     public class MoviesValidatorHandlerTests
     {
+        // @TODO: Refactor all UNIT tests from Movie Validator
+
         private readonly MoviesValidatorHandler _validator = new();
 
         [Fact]
