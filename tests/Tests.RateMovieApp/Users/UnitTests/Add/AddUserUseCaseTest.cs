@@ -1,10 +1,13 @@
 ﻿using RateMovie.Application.UseCases.Users.Add;
+using RateMovie.Exception;
+using RateMovie.Exception.RateMovieExceptions;
+using Shouldly;
+using System.Net;
 using Tests.CommonUtilities.Repositories.UnitOfWork;
 using Tests.CommonUtilities.Repositories.Users;
 using Tests.CommonUtilities.Requests;
 using Tests.CommonUtilities.Security.PasswordHasher;
 using Tests.CommonUtilities.Security.TokenGenerator;
-using Shouldly;
 
 namespace Tests.RateMovieApp.Users.UnitTests.Add
 {
@@ -22,6 +25,40 @@ namespace Tests.RateMovieApp.Users.UnitTests.Add
             testResponse.Email.ShouldBe(requestAddUser.Email);
             testResponse.Name.ShouldBe(requestAddUser.Name);
             testResponse.Token.ShouldNotBeNullOrEmpty();
+        }
+
+        [Fact]
+        public async Task Should_Fail_When_Email_Already_Exists()
+        {
+            var requestAddUser = RequestAddUserJsonBuilder.Builder();
+            var useCase = CreateUseCase(requestAddUser.Email);
+
+            var execute = async () => await useCase.Execute(requestAddUser);
+
+            var testResponse = await execute.ShouldThrowAsync<ValidationHandlerException>();
+
+            testResponse.ErrorStatusCode.ShouldBe(HttpStatusCode.BadRequest);
+            testResponse.GetErrors().Count().ShouldBe(1);
+            testResponse.GetErrors().ShouldContain(ErrorMessagesResource.EMAIL_ALREADY_EXISTS);            
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+        [InlineData("   ")]
+        public async Task Should_Fail_When_Name_Is_Null_Or_Empty(string name)
+        {
+            var requestAddUser = RequestAddUserJsonBuilder.Builder();
+            requestAddUser.Name = name;
+            var useCase = CreateUseCase();
+
+            var execute = async () => await useCase.Execute(requestAddUser);
+
+            var testResponse = await execute.ShouldThrowAsync<ValidationHandlerException>();
+
+            testResponse.ErrorStatusCode.ShouldBe(HttpStatusCode.BadRequest);
+            testResponse.GetErrors().Count().ShouldBe(1);
+            testResponse.GetErrors().ShouldContain(ErrorMessagesResource.NAME_EMPTY);
         }
 
         private AddUserUseCase CreateUseCase(string? email = null)
