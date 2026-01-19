@@ -77,8 +77,8 @@ Swagger (OpenAPI 3.0) is enabled and fully configured to support JWT authenticat
 - **Entity Framework Core** – Modern ORM for .NET, used for database access, migrations, and data management.
 - **MySql** - DB
 - **xUnit** – Unit and integration testing.
-- (Soon) **Shoudly** - Tests assertion.
-- (Soon) **MOQ** - Tests assertion.
+- **Shoudly** - Tests assertion.
+- **MOQ** - Tests assertion.
 - (Soon) **EF Core In Memory** - In Memoby DB for integration testing
 - **Bogus** – Fake data generation for testing scenarios.
 - **ClosedXML** - Generates a custom Excel.
