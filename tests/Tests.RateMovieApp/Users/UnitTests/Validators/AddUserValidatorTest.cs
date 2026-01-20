@@ -67,6 +67,19 @@ namespace Tests.RateMovieApp.Users.UnitTests.Validators
             validator.IsValid.ShouldBe(false);
         }
 
+        [Fact]
+        public void Should_Fail_When_Password_Is_Invalid()
+        {
+            var requestBuilder = RequestAddUserJsonBuilder.Build();
+            requestBuilder.Password = string.Empty;
+
+            var validator = Validation(requestBuilder);
+
+            validator.Errors.Count.ShouldBe(1);
+            validator.Errors.ShouldHaveSingleItem().ErrorMessage.ShouldBe(ErrorMessagesResource.PASSWORD_INVALID);
+            validator.IsValid.ShouldBe(false);
+        }
+
         public ValidationResult Validation(RequestAddUserJson request)
         {
             return new AddUserValidator().Validate(request);
