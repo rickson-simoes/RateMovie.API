@@ -5,6 +5,7 @@ using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
 using RateMovie.Domain.Services;
+using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Application.UseCases.Movies.Add
 {
@@ -28,8 +29,7 @@ namespace RateMovie.Application.UseCases.Movies.Add
         {
             var loggedUser = await _loggedUser.Get();
 
-            // @TODO: Remove this validator
-            new MoviesValidatorHandler().RequestMovie(request);            
+            RequestValidator(request);
 
             Movie movieEntity = request.ToMovieEntity(loggedUser.Id);
 
@@ -41,6 +41,16 @@ namespace RateMovie.Application.UseCases.Movies.Add
             return response;
         }
 
-        // @TODO: Create new validator with fluent validation for movies
+        public void RequestValidator(RequestMovieJson request)
+        {
+            var validate = new MoviesValidator().Validate(request);
+
+            if (validate.IsValid is false)
+            {
+                var errMsgs = validate.Errors.Select(err => err.ErrorMessage).ToList();
+
+                throw new ValidationHandlerException(errMsgs);
+            }
+        }
     }
 }

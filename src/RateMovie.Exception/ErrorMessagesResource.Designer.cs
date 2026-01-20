@@ -106,6 +106,24 @@ namespace RateMovie.Exception {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid movie genre. Allowed values are: Action, Drama, Comedy, SciFi, Horror, or Romance.
+        /// </summary>
+        public static string MOVIE_GENRE_INVALID {
+            get {
+                return ResourceManager.GetString("MOVIE_GENRE_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Movie name can&apos;t be empty.
+        /// </summary>
+        public static string MOVIE_NAME_CANT_BE_NULL {
+            get {
+                return ResourceManager.GetString("MOVIE_NAME_CANT_BE_NULL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Movie name must not exceed 90 characters.
         /// </summary>
         public static string MOVIE_NAME_MAX_CHARACTER_LENGTH {

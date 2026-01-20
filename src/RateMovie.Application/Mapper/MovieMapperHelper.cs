@@ -26,8 +26,7 @@ namespace RateMovie.Application.Mapper
                 Name = movie.Name,
                 Comment = movie.Comment,
                 Stars = movie.Stars,
-                Genre = (Communication.Enum.MovieGenre)movie.Genre,
-                CreatedAt = movie.CreatedAt,
+                Genre = (Communication.Enum.MovieGenre)movie.Genre
             };
         }
 
@@ -38,8 +37,7 @@ namespace RateMovie.Application.Mapper
                Name = requestMovie.Name,
                Comment = requestMovie.Comment,
                Stars = requestMovie.Stars,
-               Genre = requestMovie.Genre,
-               CreatedAt = requestMovie.CreatedAt,
+               Genre = requestMovie.Genre
             };
         }
 
@@ -51,7 +49,6 @@ namespace RateMovie.Application.Mapper
                 Comment = responseMovie.Comment,
                 Stars = responseMovie.Stars,
                 Genre = (Domain.Enum.MovieGenre)responseMovie.Genre,
-                CreatedAt = responseMovie.CreatedAt,
                 UserId = userId
             };
         }
@@ -64,7 +61,6 @@ namespace RateMovie.Application.Mapper
                 Comment = requestMovie.Comment,
                 Stars = requestMovie.Stars,
                 Genre = (Domain.Enum.MovieGenre)requestMovie.Genre,
-                CreatedAt = requestMovie.CreatedAt,
                 UserId = userId
             };
         }
