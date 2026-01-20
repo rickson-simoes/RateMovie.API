@@ -77,11 +77,14 @@ namespace RateMovie.Infrastructure.DataAccess
                 .IsRequired();
 
             entity.Property(m => m.Genre)
-                .HasColumnType("TINYINT");
+                .HasConversion<byte>()
+                .HasColumnType("TINYINT")
+                .IsRequired();
 
             entity.Property(m => m.CreatedAt)
                 .HasColumnType("DATETIME")
-                .IsRequired();
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .ValueGeneratedOnAdd();
 
             entity.Property(m => m.UserId)
                 .IsRequired();

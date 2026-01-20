@@ -26,7 +26,8 @@ namespace RateMovie.Application.Mapper
                 Name = movie.Name,
                 Comment = movie.Comment,
                 Stars = movie.Stars,
-                Genre = (Communication.Enum.MovieGenre)movie.Genre
+                Genre = (Communication.Enum.MovieGenre)movie.Genre,
+                CreatedAt = movie.CreatedAt,
             };
         }
 

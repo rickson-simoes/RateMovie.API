@@ -8,7 +8,7 @@ namespace RateMovie.Domain.Entities
         public string Name { get; set; } = "";
         public string? Comment { get; set; }
         public byte Stars { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; private set; }
         public MovieGenre Genre { get; set; }
         public int UserId { get; set; }
         public User User { get; set; } = default!;

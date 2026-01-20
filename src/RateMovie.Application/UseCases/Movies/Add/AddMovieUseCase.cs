@@ -36,7 +36,7 @@ namespace RateMovie.Application.UseCases.Movies.Add
             await _movieRepository.Add(movieEntity);
             await _unitOfWork.Commit();
 
-            ResponseMovieJson response = request.ToResponseMovieJson();
+            ResponseMovieJson response = movieEntity.ToResponseMovieJson();
 
             return response;
         }
