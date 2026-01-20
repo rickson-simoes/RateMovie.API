@@ -16,7 +16,7 @@ namespace Tests.RateMovieApp.Users.UnitTests.Add
         [Fact]
         public async Task Success()
         {
-            var requestAddUser = RequestAddUserJsonBuilder.Builder();
+            var requestAddUser = RequestAddUserJsonBuilder.Build();
             var useCase = CreateUseCase();
 
             var testResponse = await useCase.Execute(requestAddUser);
@@ -30,7 +30,7 @@ namespace Tests.RateMovieApp.Users.UnitTests.Add
         [Fact]
         public async Task Should_Fail_When_Email_Already_Exists()
         {
-            var requestAddUser = RequestAddUserJsonBuilder.Builder();
+            var requestAddUser = RequestAddUserJsonBuilder.Build();
             var useCase = CreateUseCase(requestAddUser.Email);
 
             var execute = async () => await useCase.Execute(requestAddUser);
@@ -48,7 +48,7 @@ namespace Tests.RateMovieApp.Users.UnitTests.Add
         [InlineData("   ")]
         public async Task Should_Fail_When_Name_Is_Null_Or_Empty(string name)
         {
-            var requestAddUser = RequestAddUserJsonBuilder.Builder();
+            var requestAddUser = RequestAddUserJsonBuilder.Build();
             requestAddUser.Name = name;
             var useCase = CreateUseCase();
 

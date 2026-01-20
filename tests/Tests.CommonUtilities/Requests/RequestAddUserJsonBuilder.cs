@@ -5,7 +5,7 @@ namespace Tests.CommonUtilities.Requests
 {
     public class RequestAddUserJsonBuilder
     {
-        public static RequestAddUserJson Builder()
+        public static RequestAddUserJson Build()
         {
             var request = new Faker<RequestAddUserJson>()
                 .RuleFor(req => req.Name, faker => faker.Name.FirstName())
