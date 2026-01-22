@@ -4,37 +4,45 @@ using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
+using RateMovie.Domain.Services;
 using RateMovie.Exception;
 using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Application.UseCases.Movies.Update
 {
-    internal class UpdateMovieUseCase : IUpdateMovieUseCase
+    internal class UpdateMovieUseCase(
+        IMovieUpdateOnlyRepository _movieUpdateRepository,
+        IUnitOfWorkRepository _unitOfWork,
+        ILoggedUser _loggedUser) : IUpdateMovieUseCase
     {
-        private readonly IMovieUpdateOnlyRepository _movieRepository;
-        private readonly IUnitOfWorkRepository _unitOfWork;
-
-        public UpdateMovieUseCase(IMovieUpdateOnlyRepository movieRepository, IUnitOfWorkRepository unitOfWork)
+        public async Task<ResponseMovieJson> Execute(int id, RequestMovieJson request)
         {
-            _movieRepository = movieRepository;
-            _unitOfWork = unitOfWork;
-        }
+            RequestValidator(request);
 
-        public async Task<ResponseMovieJson> Execute(int id, RequestMovieJson req)
-        {
-            new MoviesValidatorHandler().RequestMovie(req);
-
-            Movie? movie = await _movieRepository.GetById(id);
+            var loggedUser = await _loggedUser.Get();
+            Movie? movie = await _movieUpdateRepository.GetById(id, loggedUser.Id);
 
             if (movie is null)
                 throw new MovieNotFoundException(ErrorMessagesResource.MOVIE_NOT_FOUND);
 
-            movie.GetRequestMovieData(req);
+            movie.UpdateFromRequestMovieJson(request);
+            _movieUpdateRepository.Update(movie);
 
-            _movieRepository.Update(movie);
             await _unitOfWork.Commit();
 
-            return req.ToResponseMovieJson();
+            return movie.ToResponseMovieJson();
+        }
+
+        private void RequestValidator(RequestMovieJson request)
+        {
+            var movieValidator = new MoviesValidator().Validate(request);
+
+            if (movieValidator.IsValid is false)
+            {
+                var errMsgs = movieValidator.Errors.Select(err => err.ErrorMessage).ToList();
+
+                throw new ValidationHandlerException(errMsgs);
+            }
         }
     }
 }

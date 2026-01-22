@@ -46,9 +46,9 @@ namespace RateMovie.Infrastructure.Repositories.Movies
 
             return movie;
         }
-        public async Task<Movie?> GetById(int id)
+        async Task<Movie?> IMovieUpdateOnlyRepository.GetById(int id, int userId)
         {
-            var movie = await _rateMovieDBContext.Movies.FirstOrDefaultAsync(movie => movie.Id == id);
+            var movie = await _rateMovieDBContext.Movies.FirstOrDefaultAsync(movie => movie.Id == id && movie.UserId == userId);
 
             return movie;
         }

@@ -74,15 +74,15 @@ namespace RateMovie.Api.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        [ProducesResponseType<ResponseMessageJson>(StatusCodes.Status200OK)]
+        [ProducesResponseType<ResponseMessageJson>(StatusCodes.Status204NoContent)]
         [ProducesResponseType<ResponseErrorJson>(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(
             [FromServices] IDeleteMovieUseCase deleteMovieUseCase,
             [FromRoute] int id)
         {
-            var response = await deleteMovieUseCase.Execute(id);
+            await deleteMovieUseCase.Execute(id);
 
-            return Ok(response);
+            return NoContent();
         }
     }
 }

@@ -4,7 +4,7 @@ using RateMovie.Exception;
 
 namespace RateMovie.Application.UseCases.Movies
 {
-    public class MoviesValidator : AbstractValidator<RequestMovieJson>
+    internal class MoviesValidator : AbstractValidator<RequestMovieJson>
     {
         public MoviesValidator()
         {

@@ -1,39 +1,28 @@
-﻿using RateMovie.Communication.Responses;
-using RateMovie.Domain.Repositories.Movies;
+﻿using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
-using RateMovie.Domain.Resources.Success;
+using RateMovie.Domain.Services;
 using RateMovie.Exception;
 using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Application.UseCases.Movies.Delete
 {
-    internal class DeleteMovieUseCase : IDeleteMovieUseCase
+    internal class DeleteMovieUseCase(
+        IMovieDeleteOnlyRepository _movieDeleteRepository,
+        IMovieUpdateOnlyRepository _movieUpdateRepository,
+        IUnitOfWorkRepository _unitOfWorkRepository,
+        ILoggedUser _loggedUser) : IDeleteMovieUseCase
     {
-        private readonly IMovieDeleteOnlyRepository _movieDeleteOnlyRepository;
-        private readonly IUnitOfWorkRepository _unitOfWorkRepository;
-        public DeleteMovieUseCase(
-            IMovieDeleteOnlyRepository movieDeleteOnlyRepository, 
-            IUnitOfWorkRepository unitOfWorkRepository)
+        public async Task Execute(int id)
         {
-            _movieDeleteOnlyRepository = movieDeleteOnlyRepository;
-            _unitOfWorkRepository = unitOfWorkRepository;
-        }
-        public async Task<ResponseMessageJson> Execute(int id)
-        {
-            var movie = await _movieDeleteOnlyRepository.GetById(id);
+            var loggedUser = await _loggedUser.Get();
+            var movie = await _movieUpdateRepository.GetById(id, loggedUser.Id);
 
             if (movie is null)
                 throw new MovieNotFoundException(ErrorMessagesResource.MOVIE_NOT_FOUND);
 
-            _movieDeleteOnlyRepository.Delete(movie);
+            _movieDeleteRepository.Delete(movie);
+
             await  _unitOfWorkRepository.Commit();
-
-            ResponseMessageJson response = new()
-            {
-                Message = ResourceSuccessMessages.MOVIE_SUCCESSFULLY_DELETED
-            };
-
-            return response;
         }
     }
 }

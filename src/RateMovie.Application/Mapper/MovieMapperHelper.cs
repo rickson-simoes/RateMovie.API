@@ -66,11 +66,12 @@ namespace RateMovie.Application.Mapper
             };
         }
 
-        public static void GetRequestMovieData(this Movie movie, RequestMovieJson req)
+        public static void UpdateFromRequestMovieJson(this Movie movie, RequestMovieJson req)
         {
             movie.Name = req.Name;
             movie.Comment = req.Comment;
             movie.Stars = req.Stars;
+            movie.Genre = (Domain.Enum.MovieGenre)req.Genre;            
         }
     }
 }
