@@ -8,14 +8,12 @@ namespace RateMovie.Application.Mapper
     {
         public static ResponseShortMovieJson? ToResponseShortMovieJson(this Movie movie)
         {
-            if (movie == null)
-                return null;
-
             return new ResponseShortMovieJson
             {
                 Id = movie.Id,
                 Name = movie.Name,
                 Stars = movie.Stars,
+                Genre = (Communication.Enum.MovieGenre)movie.Genre
             };
         }
 

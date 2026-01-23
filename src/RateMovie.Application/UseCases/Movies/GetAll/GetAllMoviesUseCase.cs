@@ -1,21 +1,18 @@
 ﻿using RateMovie.Application.Mapper;
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Repositories.Movies;
+using RateMovie.Domain.Services;
 
 namespace RateMovie.Application.UseCases.Movies.GetAll
 {
-    internal class GetAllMoviesUseCase : IGetAllMoviesUseCase
+    internal class GetAllMoviesUseCase(
+        IMovieReadOnlyRepository _movieRepository,
+        ILoggedUser _loggedUser) : IGetAllMoviesUseCase
     {
-        private readonly IMovieReadOnlyRepository _movieRepository;
-
-        public GetAllMoviesUseCase(IMovieReadOnlyRepository movieRepository)
-        {
-            _movieRepository = movieRepository;
-        }
-
         public async Task<ResponseListShortMovieJson> Execute()
         {
-            var movies = await _movieRepository.GetAll();
+            var user = await _loggedUser.Get();
+            var movies = await _movieRepository.GetAll(user.Id);
 
             var moviesResponseListShort = movies.Select(movie => movie.ToResponseShortMovieJson()).ToList();
 

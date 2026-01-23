@@ -18,13 +18,17 @@ namespace RateMovie.Infrastructure.Repositories.Movies
             _rateMovieDBContext = rateMovieDBContext;
         }
 
-        public async Task<List<Movie>> GetAll()
+        async Task<List<Movie>> IMovieReadOnlyRepository.GetAll(int userId)
         {
-            var movies = await _rateMovieDBContext.Movies.AsNoTracking().ToListAsync();
+            var movies = await _rateMovieDBContext.Movies
+                .AsNoTracking()
+                .Where(m => m.UserId == userId)
+                .ToListAsync();
 
             return movies;
         }
 
+        // @TODO: add user id - most used: reports query
         public async Task<List<Movie>> GetAll(byte? stars)
         {
             var query = _rateMovieDBContext.Movies.AsNoTracking();
