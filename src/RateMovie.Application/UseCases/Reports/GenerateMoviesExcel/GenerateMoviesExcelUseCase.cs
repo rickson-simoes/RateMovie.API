@@ -2,22 +2,18 @@
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Resources.Reports;
-using System.Data;
+using RateMovie.Domain.Services;
 
 namespace RateMovie.Application.UseCases.Reports.GenerateMoviesExcel
 {
-    internal class GenerateMoviesExcelUseCase : IGenerateMoviesExcelUseCase
+    internal class GenerateMoviesExcelUseCase(
+        IMovieReadOnlyRepository _movieReadOnlyRepository, 
+        ILoggedUser _loggedUser) : IGenerateMoviesExcelUseCase
     {
-        private readonly IMovieReadOnlyRepository _movieReadOnlyRepository;
-
-        public GenerateMoviesExcelUseCase(IMovieReadOnlyRepository movieReadOnlyRepository)
-        {
-            _movieReadOnlyRepository = movieReadOnlyRepository;
-        }
-
         public async Task<byte[]> Execute(byte? stars)
         {
-            var movies = await _movieReadOnlyRepository.GetAll(stars);
+            var user = await _loggedUser.Get();
+            var movies = await _movieReadOnlyRepository.GetAll(stars, user.Id);
 
             if (movies.Count == 0)
             {

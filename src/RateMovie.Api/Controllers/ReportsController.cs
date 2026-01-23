@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RateMovie.Application.UseCases.Reports.GenerateMoviesExcel;
 using RateMovie.Application.UseCases.Reports.GenerateMoviesPdf;
+using RateMovie.Communication.Enum;
 using System.Net.Mime;
 
 namespace RateMovie.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = nameof(UserRole.Vip))]
+    [Authorize(Roles = nameof(UserRole.Vip))]
     public class ReportsController : ControllerBase
     {
         [HttpGet]

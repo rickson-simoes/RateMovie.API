@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
-using RateMovie.Domain.Services;
 using RateMovie.Infrastructure.DataAccess;
 
 namespace RateMovie.Infrastructure.Repositories.Movies
@@ -29,13 +28,13 @@ namespace RateMovie.Infrastructure.Repositories.Movies
             return movies;
         }
 
-        // @TODO: add user id - most used: reports query
-        public async Task<List<Movie>> GetAll(byte? stars)
+
+        public async Task<List<Movie>> GetAll(byte? stars, int userId)
         {
             var query = _rateMovieDBContext.Movies.AsNoTracking();
 
             if (stars is >= 1 and <= 5)
-                query = query.Where(movie => movie.Stars == stars);
+                query = query.Where(movie => movie.Stars == stars && movie.UserId == userId);
 
             return await query.OrderByDescending(movie => movie.Stars).ToListAsync();
         }

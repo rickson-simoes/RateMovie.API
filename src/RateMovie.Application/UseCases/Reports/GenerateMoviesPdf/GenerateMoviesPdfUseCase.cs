@@ -6,22 +6,19 @@ using RateMovie.Application.Assets.PdfColors;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Resources.Reports;
+using RateMovie.Domain.Services;
 using System.Reflection;
 
 namespace RateMovie.Application.UseCases.Reports.GenerateMoviesPdf
 {
-    internal class GenerateMoviesPdfUseCase : IGenerateMoviesPdfUseCase
+    internal class GenerateMoviesPdfUseCase(
+        IMovieReadOnlyRepository _movieReadOnlyRepository, 
+        ILoggedUser _loggedUser) : IGenerateMoviesPdfUseCase
     {
-        private readonly IMovieReadOnlyRepository _movieReadOnlyRepository;
-
-        public GenerateMoviesPdfUseCase(IMovieReadOnlyRepository movieReadOnlyRepository)
-        {
-            _movieReadOnlyRepository = movieReadOnlyRepository;
-        }
-
         public async Task<byte[]> Execute(byte? stars)
         {
-            var movies = await _movieReadOnlyRepository.GetAll(stars);
+            var user = await _loggedUser.Get();
+            var movies = await _movieReadOnlyRepository.GetAll(stars, user.Id);
 
             if (movies.Count is 0)
             {
