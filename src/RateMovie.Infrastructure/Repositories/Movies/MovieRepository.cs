@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
+using RateMovie.Domain.Services;
 using RateMovie.Infrastructure.DataAccess;
 
 namespace RateMovie.Infrastructure.Repositories.Movies
@@ -44,9 +45,12 @@ namespace RateMovie.Infrastructure.Repositories.Movies
             await _rateMovieDBContext.Movies.AddAsync(movie);
         }
 
-        async Task<Movie?> IMovieReadOnlyRepository.GetById(int id)
+        async Task<Movie?> IMovieReadOnlyRepository.GetById(int id, int userId)
         {
-            var movie = await _rateMovieDBContext.Movies.AsNoTracking().FirstOrDefaultAsync(movie => movie.Id == id);
+            var movie = await _rateMovieDBContext
+                .Movies
+                .AsNoTracking()
+                .FirstOrDefaultAsync(movie => movie.Id == id && movie.UserId == userId);
 
             return movie;
         }

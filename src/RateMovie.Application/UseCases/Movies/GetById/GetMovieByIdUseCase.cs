@@ -1,22 +1,20 @@
 ﻿using RateMovie.Application.Mapper;
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Repositories.Movies;
+using RateMovie.Domain.Services;
 using RateMovie.Exception;
 using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Application.UseCases.Movies.GetById
 {
-    public class GetMovieByIdUseCase : IGetMovieByIdUseCase
+    public class GetMovieByIdUseCase(
+        IMovieReadOnlyRepository _movieReadOnlyRepository, 
+        ILoggedUser _loggedUser) : IGetMovieByIdUseCase
     {
-        private readonly IMovieReadOnlyRepository _movieReadOnlyRepository;
-
-        public GetMovieByIdUseCase(IMovieReadOnlyRepository movieReadOnlyRepository)
-        {
-            _movieReadOnlyRepository = movieReadOnlyRepository;
-        }
         public async Task<ResponseMovieJson> Execute(int id)
         {
-            var movie = await _movieReadOnlyRepository.GetById(id);
+            var user = await _loggedUser.Get();
+            var movie = await _movieReadOnlyRepository.GetById(id, user.Id);
 
             if (movie is null)
             {
