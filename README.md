@@ -33,8 +33,11 @@ Users can create accounts, authenticate, and perform full CRUD operations on mov
 - `DELETE /api/Movies/{id}` ✅
 
 ### Reports (VIP only)
-- `GET /api/Reports/movies-pdf` ✅ 
+- `GET /api/Reports/movies-pdf` ✅
+   - With query params: `GET /api/Reports/movies-pdf?stars=3`
+
 - `GET /api/Reports/movies-excel` ✅
+   - With query params: `GET /api/Reports/movies-excel?stars=5`
 
 ---
 
@@ -66,8 +69,9 @@ Swagger (OpenAPI 3.0) is enabled and fully configured to support JWT authenticat
 <img width="970" height="501" alt="image" src="https://github.com/user-attachments/assets/afdb2b13-4686-4aae-a78c-ec5842f572c8" />
 
 ### 📃 PDF Preview
-<img width="808" height="1138" alt="image" src="https://github.com/user-attachments/assets/64b8ce87-1745-4ae7-87bf-b6c5fa45acf1" />
-<img width="571" height="873" alt="image" src="https://github.com/user-attachments/assets/9732cf68-5285-4dc4-8055-6aa38e303f9a" />
+<img width="785" height="991" alt="image" src="https://github.com/user-attachments/assets/53c13c97-3e2a-4774-bf16-baa9a3acd32b" />
+<img width="571" height="878" alt="image" src="https://github.com/user-attachments/assets/64092b8b-f4b4-4ceb-ba1e-f84a7352555f" />
+
 
 
 
