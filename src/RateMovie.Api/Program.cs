@@ -51,11 +51,7 @@ namespace RateMovie.Api
             });
 
             //Authentication.JwtBearer Config
-            builder.Services.AddAuthentication(config =>
-            {
-                config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(config =>
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(config =>
             {
                 var signingKey = builder.Configuration.GetValue<string>("TokenSettings:JWT:SigningKey")!;
 
