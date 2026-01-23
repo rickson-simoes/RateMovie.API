@@ -33,8 +33,8 @@ Users can create accounts, authenticate, and perform full CRUD operations on mov
 - `DELETE /api/Movies/{id}` ✅
 
 ### Reports (VIP only)
-- `GET /api/Reports/movies-pdf` - 🔜 (Updates incomming - No auth yet) 
-- `GET /api/Reports/movies-excel` - 🔜 (Updates incomming - No auth yet) 
+- `GET /api/Reports/movies-pdf` ✅ 
+- `GET /api/Reports/movies-excel` ✅
 
 ---
 
