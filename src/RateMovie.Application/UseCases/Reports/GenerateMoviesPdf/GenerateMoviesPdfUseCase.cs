@@ -38,7 +38,7 @@ namespace RateMovie.Application.UseCases.Reports.GenerateMoviesPdf
                     var rateMovieIcon = Path.Combine(directoryName!, "Assets", "icons", "ratemovie_icon.png");
                     var starIcon = Path.Combine(directoryName!, "Assets", "icons", "star.png");
 
-                    GenerateHeader(page, rateMovieIcon);
+                    GenerateHeader(page, rateMovieIcon, user.Name);
                     GenerateContent(page, movies, starIcon);
                 });
             });
@@ -46,7 +46,7 @@ namespace RateMovie.Application.UseCases.Reports.GenerateMoviesPdf
             return doc.GeneratePdf();
         }
 
-        private void GenerateHeader(PageDescriptor page, string icon)
+        private void GenerateHeader(PageDescriptor page, string icon, string userName)
         {
             page.Header()
                 .ShowOnce()
@@ -59,16 +59,23 @@ namespace RateMovie.Application.UseCases.Reports.GenerateMoviesPdf
                     });
 
                     t.Cell()
+                    .RowSpan(2)
                     .Image(icon);
 
                     t.Cell()
-                    .PaddingTop(30)
-                    .AlignCenter()
-                    .AlignMiddle()
+                    .PaddingTop(20)
+                    .PaddingLeft(16)
                     .Text(ResourceReportMessages.PDF_HEADER_TITLE)
                     .FontSize(26)
                     .FontFamily(FontFamilyName.EXO)
                     .Medium();
+
+                    t.Cell()
+                    .PaddingLeft(16)
+                    .Text($"{ResourceReportMessages.CRITIC_TEXT} {userName}")
+                    .FontSize(22)
+                    .FontFamily(FontFamilyName.EXO)
+                    .Thin();
                 });
         }
 

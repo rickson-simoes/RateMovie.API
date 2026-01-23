@@ -88,6 +88,15 @@ namespace RateMovie.Domain.Resources.Reports {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Critic:.
+        /// </summary>
+        public static string CRITIC_TEXT {
+            get {
+                return ResourceManager.GetString("CRITIC_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RateMovie - Make your own critics.
         /// </summary>
         public static string PDF_HEADER_TITLE {

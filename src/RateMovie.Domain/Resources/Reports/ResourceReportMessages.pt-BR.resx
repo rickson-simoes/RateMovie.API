@@ -126,6 +126,9 @@
   <data name="COLUMN_STARS" xml:space="preserve">
     <value>Estrelas</value>
   </data>
+  <data name="CRITIC_TEXT" xml:space="preserve">
+    <value>Crítico:</value>
+  </data>
   <data name="PDF_HEADER_TITLE" xml:space="preserve">
     <value>RateMovie - Suas próprias críticas</value>
   </data>
