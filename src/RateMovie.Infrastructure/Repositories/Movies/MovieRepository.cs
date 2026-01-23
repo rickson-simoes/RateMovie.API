@@ -34,9 +34,9 @@ namespace RateMovie.Infrastructure.Repositories.Movies
             var query = _rateMovieDBContext.Movies.AsNoTracking();
 
             if (stars is >= 1 and <= 5)
-                query = query.Where(movie => movie.Stars == stars && movie.UserId == userId);
+                query = query.Where(movie => movie.Stars == stars);
 
-            return await query.OrderByDescending(movie => movie.Stars).ToListAsync();
+            return await query.Where(movie => movie.UserId == userId).OrderByDescending(movie => movie.Stars).ToListAsync();
         }
 
         public async Task Add(Movie movie)
