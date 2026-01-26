@@ -116,14 +116,56 @@ No cookies or sessions are used.
 - **Unit Tests**: validated with **xUnit**, ensuring business rules work in isolation.
 - **Bogus**: generates fake data to simulate real-world scenarios.
 
-❗ Upcoming testing improvements include:
+Testing improvements include:
 - Unit tests using in-memory providers
 - Integration tests with in-memory databases
 - Coverage for:
-  - Domain logic
   - Application services
   - Authentication and authorization flows
   - API controllers
+  
+## ✅ Implemented Unit Tests
+Login:
+- **Login Use Case** - User Login.
+
+User:
+- **Add User Use Case** – Creates a new user.
+- **Add User Validator** – Validates user request body params.
+- **Passwor dValidator** – Validates user password body params.
+
+Movies:
+- **MoviesValidator** - Validates movie request body params.
+
+## ❌ Pending Unit Tests
+Movies:
+ - Retrieve all movies
+ - Retrieve a movie by ID  
+ - Create a new movie  
+ - Update an existing movie  
+ - Delete a movie
+
+Reports:
+ - Generate movies report in PDF  
+ - Generate movies report in Excel 
+
+## ❌ Missing Integration Tests
+Login: 
+- `POST /api/Login` – Authenticate and receive a JWT token
+
+Users
+- `POST /api/Users` – Create a new user
+
+Movies
+- `GET /api/Movies` – Retrieve all movies  
+- `GET /api/Movies/{id}` – Retrieve movie by ID  
+- `POST /api/Movies` – Create movie  
+- `PUT /api/Movies/{id}` – Update movie  
+- `DELETE /api/Movies/{id}` – Delete movie
+
+Reports (VIP Only)
+- `GET /api/Reports/movies-pdf` - Generates a PDF with all user critics.
+- `GET /api/Reports/movies-excel` - Generates an Excel with all user critics.
+
 
 ## 🖥️ Running Locally 
 Follow these steps to **run the API locally** with automatic migrations/seed data:
