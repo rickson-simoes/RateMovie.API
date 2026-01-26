@@ -2,7 +2,7 @@
 using RateMovie.Communication.Requests;
 using RateMovie.Communication.Enum;
 
-namespace Tests.CommonUtilities.Requests
+namespace RateMovie.CommonUtilities.Requests
 {
     public class RequestMovieJsonBuilder
     {

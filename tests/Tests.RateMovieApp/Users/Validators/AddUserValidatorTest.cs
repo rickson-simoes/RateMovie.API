@@ -1,11 +1,11 @@
 ﻿using FluentValidation.Results;
 using RateMovie.Application.UseCases.Users.Add;
+using RateMovie.CommonUtilities.Requests;
 using RateMovie.Communication.Requests;
 using RateMovie.Exception;
 using Shouldly;
-using Tests.CommonUtilities.Requests;
 
-namespace Tests.RateMovieApp.Users.UnitTests.Validators
+namespace RateMovie.UnitTests.Users.Validators
 {
     public class AddUserValidatorTest
     {

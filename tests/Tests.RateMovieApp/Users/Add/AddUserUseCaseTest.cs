@@ -1,15 +1,15 @@
 ﻿using RateMovie.Application.UseCases.Users.Add;
+using RateMovie.CommonUtilities.Repositories.UnitOfWork;
+using RateMovie.CommonUtilities.Repositories.Users;
+using RateMovie.CommonUtilities.Requests;
+using RateMovie.CommonUtilities.Security.PasswordHasher;
+using RateMovie.CommonUtilities.Security.TokenGenerator;
 using RateMovie.Exception;
 using RateMovie.Exception.RateMovieExceptions;
 using Shouldly;
 using System.Net;
-using Tests.CommonUtilities.Repositories.UnitOfWork;
-using Tests.CommonUtilities.Repositories.Users;
-using Tests.CommonUtilities.Requests;
-using Tests.CommonUtilities.Security.PasswordHasher;
-using Tests.CommonUtilities.Security.TokenGenerator;
 
-namespace Tests.RateMovieApp.Users.UnitTests.Add
+namespace RateMovie.UnitTests.Users.Add
 {
     public class AddUserUseCaseTest
     {

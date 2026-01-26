@@ -9,22 +9,11 @@ using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Application.UseCases.Movies.Add
 {
-    internal class AddMovieUseCase : IAddMovieUseCase
+    internal class AddMovieUseCase(
+        IMovieWriteOnlyRepository _movieRepository,
+        IUnitOfWorkRepository _unitOfWork,
+        ILoggedUser _loggedUser) : IAddMovieUseCase
     {
-        private readonly IMovieWriteOnlyRepository _movieRepository;
-        private readonly IUnitOfWorkRepository _unitOfWork;
-        private readonly ILoggedUser _loggedUser;
-
-        public AddMovieUseCase(
-            IMovieWriteOnlyRepository movieRepository,
-            IUnitOfWorkRepository unitOfWork,
-            ILoggedUser loggedUser)
-        {
-            _movieRepository = movieRepository;
-            _unitOfWork = unitOfWork;
-            _loggedUser = loggedUser;
-        }
-
         public async Task<ResponseMovieJson> Execute(RequestMovieJson request)
         {
             var loggedUser = await _loggedUser.Get();

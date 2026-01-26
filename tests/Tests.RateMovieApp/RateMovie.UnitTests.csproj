@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\RateMovie.Application\RateMovie.Application.csproj" />
-    <ProjectReference Include="..\Tests.CommonUtilities\Tests.CommonUtilities.csproj" />
+    <ProjectReference Include="..\Tests.CommonUtilities\RateMovie.CommonUtilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

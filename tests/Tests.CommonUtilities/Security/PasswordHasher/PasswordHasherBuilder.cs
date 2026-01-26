@@ -1,7 +1,7 @@
 ﻿using Moq;
 using RateMovie.Domain.Security.PasswordHasher;
 
-namespace Tests.CommonUtilities.Security.PasswordHasher
+namespace RateMovie.CommonUtilities.Security.PasswordHasher
 {
     public class PasswordHasherBuilder
     {

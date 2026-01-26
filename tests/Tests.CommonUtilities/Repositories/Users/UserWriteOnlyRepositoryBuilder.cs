@@ -1,7 +1,7 @@
 ﻿using Moq;
 using RateMovie.Domain.Repositories.Users;
 
-namespace Tests.CommonUtilities.Repositories.Users
+namespace RateMovie.CommonUtilities.Repositories.Users
 {
     public class UserWriteOnlyRepositoryBuilder
     {

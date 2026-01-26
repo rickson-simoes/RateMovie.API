@@ -1,9 +1,9 @@
 ﻿using RateMovie.Application.UseCases.Users;
+using RateMovie.CommonUtilities.Requests;
 using RateMovie.Communication.Requests;
 using Shouldly;
-using Tests.CommonUtilities.Requests;
 
-namespace Tests.RateMovieApp.Users.UnitTests.Validators
+namespace RateMovie.UnitTests.Users.Validators
 {
     public class PasswordValidatorTest
     {

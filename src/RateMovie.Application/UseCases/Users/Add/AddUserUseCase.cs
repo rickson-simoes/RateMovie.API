@@ -11,28 +11,13 @@ using RateMovie.Exception.RateMovieExceptions;
 
 namespace RateMovie.Application.UseCases.Users.Add
 {
-    internal class AddUserUseCase : IAddUserUseCase
+    internal class AddUserUseCase(
+        IUnitOfWorkRepository _unitOfWork,
+        IUserWriteOnlyRepository _userWriteOnlyRepository,
+        IUserReadOnlyRepository _userReadOnlyRepository,
+        IPasswordHasher _passwordHasher,
+        ITokenGenerator _tokenGenerator) : IAddUserUseCase
     {
-        private readonly IUnitOfWorkRepository _unitOfWork;
-        private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
-        private readonly IUserReadOnlyRepository _userReadOnlyRepository;
-        private readonly IPasswordHasher _passwordHasher;
-        private readonly ITokenGenerator _tokenGenerator;
-
-        public AddUserUseCase(
-            IUnitOfWorkRepository unitOfWork, 
-            IUserWriteOnlyRepository userWriteOnlyRepository,
-            IUserReadOnlyRepository userReadOnlyRepository,
-            IPasswordHasher passwordHasher,
-            ITokenGenerator tokenGenerator)
-        {
-            _userWriteOnlyRepository = userWriteOnlyRepository;
-            _userReadOnlyRepository = userReadOnlyRepository;
-            _unitOfWork = unitOfWork;
-            _passwordHasher = passwordHasher;
-            _tokenGenerator = tokenGenerator;
-        }
-
         public async Task<ResponseAddUserJson> Execute(RequestAddUserJson req)
         {
             await RequestValidator(req);

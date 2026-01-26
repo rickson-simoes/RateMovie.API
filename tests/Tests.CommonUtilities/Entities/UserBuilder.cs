@@ -2,7 +2,7 @@
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Enum;
 
-namespace Tests.CommonUtilities.Entities
+namespace RateMovie.CommonUtilities.Entities
 {
     public class UserBuilder
     {

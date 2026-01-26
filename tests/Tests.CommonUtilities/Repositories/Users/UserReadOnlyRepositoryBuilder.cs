@@ -2,7 +2,7 @@
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Users;
 
-namespace Tests.CommonUtilities.Repositories.Users
+namespace RateMovie.CommonUtilities.Repositories.Users
 {
     public class UserReadOnlyRepositoryBuilder
     {

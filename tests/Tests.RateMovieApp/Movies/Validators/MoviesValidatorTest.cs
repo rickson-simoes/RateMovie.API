@@ -1,11 +1,11 @@
 ﻿using FluentValidation.Results;
 using RateMovie.Application.UseCases.Movies;
+using RateMovie.CommonUtilities.Requests;
 using RateMovie.Communication.Requests;
 using RateMovie.Exception;
 using Shouldly;
-using Tests.CommonUtilities.Requests;
 
-namespace Tests.RateMovieApp.Movies.UnitTests.Validators
+namespace RateMovie.UnitTests.Movies.Validators
 {
     public class MoviesValidatorTest
     {
@@ -108,7 +108,7 @@ namespace Tests.RateMovieApp.Movies.UnitTests.Validators
         public void Should_Fail_When_Genre_Is_Invalid()
         {
             var request = RequestMovieJsonBuilder.Build();
-            request.Genre = (RateMovie.Communication.Enum.MovieGenre)8;
+            request.Genre = (Communication.Enum.MovieGenre)8;
 
             var validator = Validation(request);
 

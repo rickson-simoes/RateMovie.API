@@ -1,7 +1,7 @@
 ﻿using Moq;
 using RateMovie.Domain.Repositories.UnitOfWork;
 
-namespace Tests.CommonUtilities.Repositories.UnitOfWork
+namespace RateMovie.CommonUtilities.Repositories.UnitOfWork
 {
     public static class UnitOfWorkBuilder
     {

@@ -2,7 +2,7 @@
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Security.TokenGenerator;
 
-namespace Tests.CommonUtilities.Security.TokenGenerator
+namespace RateMovie.CommonUtilities.Security.TokenGenerator
 {
     public class TokenGeneratorBuilder
     {

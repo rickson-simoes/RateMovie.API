@@ -43,8 +43,8 @@
 
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="Tests.RateMovieApp"/>
-		<InternalsVisibleTo Include="Tests.CommonUtilities"/>
+		<InternalsVisibleTo Include="RateMovie.UnitTests"/>
+		<InternalsVisibleTo Include="RateMovie.CommonUtilities"/>
 	</ItemGroup>
 
 </Project>

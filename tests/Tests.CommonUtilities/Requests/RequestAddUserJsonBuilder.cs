@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using RateMovie.Communication.Requests;
 
-namespace Tests.CommonUtilities.Requests
+namespace RateMovie.CommonUtilities.Requests
 {
     public class RequestAddUserJsonBuilder
     {
