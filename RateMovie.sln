@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.Communication", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.Exception", "src\RateMovie.Exception\RateMovie.Exception.csproj", "{AA783099-0A56-4BE8-88A2-CE8D31718AAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.CommonUtilities", "tests\Tests.CommonUtilities\RateMovie.CommonUtilities.csproj", "{6E50F5FA-D6A9-4F87-94B3-6B34EB3B7CF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.CommonUtilities", "tests\RateMovie.CommonUtilities\RateMovie.CommonUtilities.csproj", "{6E50F5FA-D6A9-4F87-94B3-6B34EB3B7CF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.UnitTests", "tests\Tests.RateMovieApp\RateMovie.UnitTests.csproj", "{480893BE-86F7-4878-B888-64B07B3B3AEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateMovie.UnitTests", "tests\RateMovie.UnitTests\RateMovie.UnitTests.csproj", "{480893BE-86F7-4878-B888-64B07B3B3AEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
