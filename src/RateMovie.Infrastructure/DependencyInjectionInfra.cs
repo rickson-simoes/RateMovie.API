@@ -49,15 +49,19 @@ namespace RateMovie.Infrastructure
 
         private static void DependencyInjectionDbContext(IServiceCollection service, IConfiguration config)
         {
-            var connectionString = config.GetConnectionString("ConnectionDBMySql");
-            var serverVersion = ServerVersion.AutoDetect(connectionString);
-
-            service.AddDbContext<RateMovieDBContext>(opt =>
+            var testEnvironemnt = config.GetValue<bool>("TestEnvironment");
+            if (testEnvironemnt is false)
             {
-                opt
-                .UseMySql(connectionString, serverVersion)
-                .LogTo(Console.WriteLine, LogLevel.Information);
-            });
+                var connectionString = config.GetConnectionString("ConnectionDBMySql");
+                var serverVersion = ServerVersion.AutoDetect(connectionString);
+
+                service.AddDbContext<RateMovieDBContext>(opt =>
+                {
+                    opt
+                    .UseMySql(connectionString, serverVersion)
+                    .LogTo(Console.WriteLine, LogLevel.Information);
+                });
+            }
         }
     }
 }

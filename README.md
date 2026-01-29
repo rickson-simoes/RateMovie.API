@@ -83,7 +83,7 @@ Swagger (OpenAPI 3.0) is enabled and fully configured to support JWT authenticat
 - **xUnit** – Unit and integration testing.
 - **Shoudly** - Tests assertion.
 - **MOQ** - Tests assertion.
-- (Soon) **EF Core In Memory** - In Memoby DB for integration testing
+- **EF Core SQLite In-Memory.** - In Memory DB for integration testing
 - **Bogus** – Fake data generation for testing scenarios.
 - **ClosedXML** - Generates a custom Excel.
 - **QuestPDF** - Generates a custom PDF.
@@ -118,7 +118,7 @@ No cookies or sessions are used.
 
 Testing improvements include:
 - Unit tests using in-memory providers
-- Integration tests with in-memory databases
+- Integration tests with in-memory sqlite database
 - Coverage for:
   - Application services
   - Authentication and authorization flows
@@ -128,13 +128,18 @@ Testing improvements include:
 Login:
 - **Login Use Case** - User Login.
 
-User:
+Users:
 - **Add User Use Case** – Creates a new user.
 - **Add User Validator** – Validates user request body params.
 - **Passwor dValidator** – Validates user password body params.
 
 Movies:
 - **MoviesValidator** - Validates movie request body params.
+
+## ✅ Implemented Integration Tests
+
+Users:
+- `POST /api/Users` – Creates a new user
 
 ## ❌ Pending Unit Tests
 Movies:
@@ -152,17 +157,14 @@ Reports:
 Login: 
 - `POST /api/Login` – Authenticate and receive a JWT token
 
-Users
-- `POST /api/Users` – Create a new user
-
-Movies
+Movies:
 - `GET /api/Movies` – Retrieve all movies  
 - `GET /api/Movies/{id}` – Retrieve movie by ID  
 - `POST /api/Movies` – Create movie  
 - `PUT /api/Movies/{id}` – Update movie  
 - `DELETE /api/Movies/{id}` – Delete movie
 
-Reports (VIP Only)
+Reports (VIP Only):
 - `GET /api/Reports/movies-pdf` - Generates a PDF with all user critics.
 - `GET /api/Reports/movies-excel` - Generates an Excel with all user critics.
 

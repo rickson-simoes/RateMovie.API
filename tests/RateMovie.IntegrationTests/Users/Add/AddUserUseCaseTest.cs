@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
-using RateMovie.Api;
-using RateMovie.CommonUtilities.Requests;
+﻿using RateMovie.CommonUtilities.Requests;
+using RateMovie.IntegrationTests.CustomFactory;
 using Shouldly;
 using System.Net;
 using System.Net.Http.Json;
@@ -8,14 +7,12 @@ using System.Text.Json;
 
 namespace RateMovie.IntegrationTests.Users.Add
 {
-    public class AddUserUseCaseTest : IClassFixture<WebApplicationFactory<Program>>
-    {
-        private readonly HttpClient _httpClient;
+    public class AddUserUseCaseTest : SqliteIntegrationTestBase
+    {        
         private const string USER_URI = "api/users";
 
-        public AddUserUseCaseTest(WebApplicationFactory<Program> webApplicationFactory)
+        public AddUserUseCaseTest(CustomWebApplicationFactorySQLite webApplicationFactory) : base(webApplicationFactory)
         {
-            _httpClient = webApplicationFactory.CreateClient();
         }
 
         [Fact]

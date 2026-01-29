@@ -90,7 +90,10 @@ namespace RateMovie.Api
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+            }
 
+            if (app.Environment.IsEnvironment("Test") == false)
+            {
                 // Migrations/Seeds
                 await app.ExecuteDatabaseMigration();
             }
