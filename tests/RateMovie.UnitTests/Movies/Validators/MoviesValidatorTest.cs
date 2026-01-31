@@ -23,10 +23,10 @@ namespace RateMovie.UnitTests.Movies.Validators
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void Should_Fail_When_Movie_Name_Is_Null_Or_Empty(string name)
+        public void Should_Fail_When_Movie_Name_Is_Null_Or_Empty(string movieName)
         {
             var request = RequestMovieJsonBuilder.Build();
-            request.Name = null;
+            request.Name = movieName;
 
             var validator = Validation(request);
 
