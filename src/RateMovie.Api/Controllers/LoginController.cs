@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RateMovie.Application.UseCases.Login;
 using RateMovie.Communication.Requests;
 using RateMovie.Communication.Responses;

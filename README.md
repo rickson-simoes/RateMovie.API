@@ -141,6 +141,9 @@ Movies:
 Users:
 - `POST /api/Users` – Creates a new user
 
+Login: 
+- `POST /api/Login` – Authenticate and receive a JWT token
+
 ## ❌ Pending Unit Tests
 Movies:
  - Retrieve all movies
@@ -154,9 +157,6 @@ Reports:
  - Generate movies report in Excel 
 
 ## ❌ Missing Integration Tests
-Login: 
-- `POST /api/Login` – Authenticate and receive a JWT token
-
 Movies:
 - `GET /api/Movies` – Retrieve all movies  
 - `GET /api/Movies/{id}` – Retrieve movie by ID  
