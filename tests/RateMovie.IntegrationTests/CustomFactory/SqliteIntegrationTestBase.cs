@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.DependencyInjection;
 using RateMovie.Infrastructure.DataAccess;
 using System.Net.Http.Json;
 
@@ -26,17 +27,26 @@ namespace RateMovie.IntegrationTests.CustomFactory
             await action(db);
         }
 
-        public async Task<HttpResponseMessage> PostAsync(string requestUri, object payload, string? token = null, string? culture = null)
+        private void AddAuthorizationJWT(string? token = null)
         {
-            if(token is not null)
+            if (string.IsNullOrWhiteSpace(token) is false)
             {
-                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(JwtBearerDefaults.AuthenticationScheme, token);
             }
+        }
 
-            if(culture is not null)
+        private void AddAcceptLanguageCultureHeader(string? culture = null)
+        {
+            if (string.IsNullOrWhiteSpace(culture) is false)
             {
                 _httpClient.DefaultRequestHeaders.AcceptLanguage.Add(new System.Net.Http.Headers.StringWithQualityHeaderValue(culture));
             }
+        }
+
+        public async Task<HttpResponseMessage> PostAsync(string requestUri, object payload, string? token = null, string? culture = null)
+        {
+            AddAuthorizationJWT(token);
+            AddAcceptLanguageCultureHeader(culture);
 
             var response = await _httpClient.PostAsJsonAsync(requestUri, payload);
 
