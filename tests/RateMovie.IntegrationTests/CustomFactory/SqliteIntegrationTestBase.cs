@@ -27,7 +27,7 @@ namespace RateMovie.IntegrationTests.CustomFactory
             await action(db);
         }
 
-        private void AddAuthorizationJWT(string? token = null)
+        private void AddJwtAuthHeader(string? token = null)
         {
             if (string.IsNullOrWhiteSpace(token) is false)
             {
@@ -45,7 +45,7 @@ namespace RateMovie.IntegrationTests.CustomFactory
 
         public async Task<HttpResponseMessage> PostAsync(string requestUri, object payload, string? token = null, string? culture = null)
         {
-            AddAuthorizationJWT(token);
+            AddJwtAuthHeader(token);
             AddAcceptLanguageCultureHeader(culture);
 
             var response = await _httpClient.PostAsJsonAsync(requestUri, payload);
