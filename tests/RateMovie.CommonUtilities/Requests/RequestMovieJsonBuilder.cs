@@ -1,6 +1,6 @@
 ﻿using Bogus;
-using RateMovie.Communication.Requests;
 using RateMovie.Communication.Enum;
+using RateMovie.Communication.Requests.Movie;
 
 namespace RateMovie.CommonUtilities.Requests
 {

@@ -1,6 +1,6 @@
 ﻿using RateMovie.Communication.Enum;
 
-namespace RateMovie.Communication.Requests
+namespace RateMovie.Communication.Requests.Movie
 {
     public class RequestMovieJson
     {

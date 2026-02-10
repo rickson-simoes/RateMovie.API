@@ -5,7 +5,7 @@ using RateMovie.Application.UseCases.Movies.Delete;
 using RateMovie.Application.UseCases.Movies.GetAll;
 using RateMovie.Application.UseCases.Movies.GetById;
 using RateMovie.Application.UseCases.Movies.Update;
-using RateMovie.Communication.Requests;
+using RateMovie.Communication.Requests.Movie;
 using RateMovie.Communication.Responses;
 
 namespace RateMovie.Api.Controllers

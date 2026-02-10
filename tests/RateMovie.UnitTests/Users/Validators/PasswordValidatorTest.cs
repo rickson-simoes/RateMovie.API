@@ -1,6 +1,6 @@
 ﻿using RateMovie.Application.UseCases.Users;
 using RateMovie.CommonUtilities.Requests;
-using RateMovie.Communication.Requests;
+using RateMovie.Communication.Requests.User;
 using Shouldly;
 
 namespace RateMovie.UnitTests.Users.Validators

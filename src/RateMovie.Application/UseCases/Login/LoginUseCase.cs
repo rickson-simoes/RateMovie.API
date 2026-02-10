@@ -1,4 +1,4 @@
-﻿using RateMovie.Communication.Requests;
+﻿using RateMovie.Communication.Requests.Login;
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Repositories.Users;
 using RateMovie.Domain.Security.PasswordHasher;

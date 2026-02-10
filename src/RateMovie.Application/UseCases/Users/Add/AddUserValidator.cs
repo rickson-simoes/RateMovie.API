@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using RateMovie.Communication.Requests;
+using RateMovie.Communication.Requests.User;
 using RateMovie.Exception;
 
 namespace RateMovie.Application.UseCases.Users.Add

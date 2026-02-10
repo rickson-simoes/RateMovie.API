@@ -1,5 +1,5 @@
 ﻿using RateMovie.CommonUtilities.Entities;
-using RateMovie.Communication.Requests;
+using RateMovie.Communication.Requests.Login;
 using RateMovie.Infrastructure.Security.PasswordHasher;
 using RateMovie.IntegrationTests.CustomFactory;
 using Shouldly;

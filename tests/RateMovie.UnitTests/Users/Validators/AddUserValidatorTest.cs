@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Results;
 using RateMovie.Application.UseCases.Users.Add;
 using RateMovie.CommonUtilities.Requests;
-using RateMovie.Communication.Requests;
+using RateMovie.Communication.Requests.User;
 using RateMovie.Exception;
 using Shouldly;
 

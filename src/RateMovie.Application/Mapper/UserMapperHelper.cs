@@ -1,4 +1,4 @@
-﻿using RateMovie.Communication.Requests;
+﻿using RateMovie.Communication.Requests.User;
 using RateMovie.Communication.Responses;
 using RateMovie.Domain.Entities;
 

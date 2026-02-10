@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using RateMovie.Communication.Requests;
+using RateMovie.Communication.Requests.User;
 
 namespace RateMovie.CommonUtilities.Requests
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RateMovie.Application.UseCases.Users.Add;
 using RateMovie.Application.UseCases.Users.Delete;
-using RateMovie.Communication.Requests;
+using RateMovie.Communication.Requests.User;
 using RateMovie.Communication.Responses;
 
 namespace RateMovie.Api.Controllers

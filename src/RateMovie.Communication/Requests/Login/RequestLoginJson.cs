@@ -1,4 +1,4 @@
-﻿namespace RateMovie.Communication.Requests
+﻿namespace RateMovie.Communication.Requests.Login
 {
     public record RequestLoginJson(string Email, string Password);
 }

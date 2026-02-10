@@ -1,4 +1,4 @@
-﻿namespace RateMovie.Communication.Requests
+﻿namespace RateMovie.Communication.Requests.User
 {
     public class RequestAddUserJson
     {

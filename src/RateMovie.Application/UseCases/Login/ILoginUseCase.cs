@@ -1,4 +1,4 @@
-﻿using RateMovie.Communication.Requests;
+﻿using RateMovie.Communication.Requests.Login;
 using RateMovie.Communication.Responses;
 
 namespace RateMovie.Application.UseCases.Login
