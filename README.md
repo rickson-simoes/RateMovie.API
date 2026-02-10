@@ -148,6 +148,7 @@ Login:
 - `POST /api/Login` – Authenticate and receive a JWT token
 
 ## ❌ Pending Unit Tests
+
 Users:
  – Delete user
  – Update user data
