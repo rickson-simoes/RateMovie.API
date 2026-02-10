@@ -12,6 +12,7 @@ using RateMovie.Application.UseCases.Users.Delete;
 using RateMovie.Application.UseCases.Users.GetAllData;
 using RateMovie.Application.UseCases.Users.PatchVip;
 using RateMovie.Application.UseCases.Users.Update;
+using RateMovie.Application.UseCases.Users.UpdatePassword;
 
 namespace RateMovie.Application
 {
@@ -26,6 +27,7 @@ namespace RateMovie.Application
             service.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
             service.AddScoped<IPatchVipUserUseCase, PatchVipUserUseCase>();
             service.AddScoped<IGetAllUserDataUseCase, GetAllUserDataUseCase>();
+            service.AddScoped<IUpdateUserPasswordUseCase, UpdateUserPasswordUseCase>();
 
             service.AddScoped<IAddMovieUseCase, AddMovieUseCase>();
             service.AddScoped<IGetAllMoviesUseCase, GetAllMoviesUseCase>();

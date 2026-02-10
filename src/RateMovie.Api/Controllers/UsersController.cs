@@ -4,6 +4,7 @@ using RateMovie.Application.UseCases.Users.Delete;
 using RateMovie.Application.UseCases.Users.GetAllData;
 using RateMovie.Application.UseCases.Users.PatchVip;
 using RateMovie.Application.UseCases.Users.Update;
+using RateMovie.Application.UseCases.Users.UpdatePassword;
 using RateMovie.Communication.Requests.User;
 using RateMovie.Communication.Responses;
 using RateMovie.Communication.Responses.User;
@@ -41,6 +42,18 @@ namespace RateMovie.Api.Controllers
         public async Task<IActionResult> UpdateUser(
             [FromServices] IUpdateUserUseCase updateUseCase, 
             [FromBody] RequestUpdateUserJson request)
+        {
+           await updateUseCase.Execute(request);
+
+           return NoContent();
+        }
+
+        [HttpPut("password")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType<ResponseErrorJson>(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> UpdateUserPassword(
+            [FromServices] IUpdateUserPasswordUseCase updateUseCase, 
+            [FromBody] RequestUpdateUserPasswordJson request)
         {
            await updateUseCase.Execute(request);
 
