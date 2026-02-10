@@ -5,7 +5,7 @@ using RateMovie.Infrastructure.DataAccess;
 
 namespace RateMovie.Infrastructure.Repositories.Users
 {
-    internal class UserRepository : IUserWriteOnlyRepository, IUserReadOnlyRepository
+    internal class UserRepository : IUserWriteOnlyRepository, IUserReadOnlyRepository, IUserDeleteOnlyRepository
     {
         private readonly RateMovieDBContext _dbContext;
 
@@ -17,6 +17,11 @@ namespace RateMovie.Infrastructure.Repositories.Users
         public async Task Add(User user)
         {
             await _dbContext.Users.AddAsync(user);
+        }
+
+        public void Delete(User user)
+        {
+            _dbContext.Users.Remove(user);
         }
 
         public async Task<bool> EmailExists(string email)

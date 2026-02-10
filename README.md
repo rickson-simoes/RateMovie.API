@@ -24,7 +24,7 @@ Users can create accounts, authenticate, and perform full CRUD operations on mov
 
 ### Users
 - `POST /api/Users` – Create a new user ✅
-- `DELETE /api/Users` – Delete user ❌
+- `DELETE /api/Users` – Delete user ✅
 - `PUT /api/Users` – Update user info ❌
 - `PATCH /api/Users` – Update user as VIP ❌
 

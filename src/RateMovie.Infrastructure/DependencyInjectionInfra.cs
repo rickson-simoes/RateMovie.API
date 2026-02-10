@@ -45,6 +45,7 @@ namespace RateMovie.Infrastructure
 
             service.AddScoped<IUserWriteOnlyRepository, UserRepository>();
             service.AddScoped<IUserReadOnlyRepository, UserRepository>();
+            service.AddScoped<IUserDeleteOnlyRepository, UserRepository>();
         }
 
         private static void DependencyInjectionDbContext(IServiceCollection service, IConfiguration config)
