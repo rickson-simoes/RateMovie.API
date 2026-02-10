@@ -25,10 +25,10 @@ Users can create accounts, authenticate, and perform full CRUD operations on mov
 ### Users
 - `POST /api/Users` – Create a new user ✅
 - `DELETE /api/Users` – Delete user ✅
-- `PUT /api/Users` – Update user info ✅
+- `PUT /api/Users` – Update user data ✅
 - `PUT /api/Users/Password` – Update User Password ✅
 - `PATCH /api/Users` – Update user as VIP ✅
-- `GET /api/Users` – Get All Logged User Data ✅
+- `GET /api/Users` – Get all logged user data ✅
 
 ### Movies
 - `GET(ALL Movies) /api/Movies` ✅
@@ -136,7 +136,7 @@ Login:
 Users:
 - **Add User Use Case** – Creates a new user.
 - **Add User Validator** – Validates user request body params.
-- **Passwor dValidator** – Validates user password body params.
+- **Password Validator** – Validates user password body params.
 
 Movies:
 - **MoviesValidator** - Validates movie request body params.
@@ -150,11 +150,12 @@ Login:
 - `POST /api/Login` – Authenticate and receive a JWT token
 
 ## ❌ Pending Unit Tests
-
 Users:
  - Delete user
  - Update user data
  - Update user as VIP
+ - Update user Password
+ - Get all user data
 
 Movies:
  - Retrieve all movies
@@ -169,9 +170,11 @@ Reports:
 
 ## ❌ Missing Integration Tests
 Users:
-- `DELETE /api/Users` – Deletes the user
-- `PUT /api/Users` – Update user info
-- `PATCH /api/Users` – Update user as VIP
+- `DELETE /api/Users` – Delete user 
+- `PUT /api/Users` – Update user info 
+- `PUT /api/Users/Password` – Update User Password 
+- `PATCH /api/Users` – Update user as VIP 
+- `GET /api/Users` – Get All Logged User Data 
 
 Movies:
 - `GET /api/Movies` – Retrieve all movies  
