@@ -24,6 +24,8 @@ Users can create accounts, authenticate, and perform full CRUD operations on mov
 
 ### Users
 - `POST /api/Users` – Create a new user ✅
+- `DELETE /api/Users` – Delete user ❌
+- `PUT /api/Users` – Update user info ❌
 
 ### Movies
 - `GET(ALL Movies) /api/Movies` ✅
@@ -145,6 +147,10 @@ Login:
 - `POST /api/Login` – Authenticate and receive a JWT token
 
 ## ❌ Pending Unit Tests
+Users:
+– Delete user
+– Update user data
+
 Movies:
  - Retrieve all movies
  - Retrieve a movie by ID  
@@ -157,6 +163,10 @@ Reports:
  - Generate movies report in Excel 
 
 ## ❌ Missing Integration Tests
+Users:
+- `DELETE /api/Users` – Deletes the user
+- `PUT /api/Users` – Update user info
+
 Movies:
 - `GET /api/Movies` – Retrieve all movies  
 - `GET /api/Movies/{id}` – Retrieve movie by ID  
