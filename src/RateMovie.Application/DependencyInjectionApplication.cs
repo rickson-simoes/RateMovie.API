@@ -9,6 +9,7 @@ using RateMovie.Application.UseCases.Reports.GenerateMoviesExcel;
 using RateMovie.Application.UseCases.Reports.GenerateMoviesPdf;
 using RateMovie.Application.UseCases.Users.Add;
 using RateMovie.Application.UseCases.Users.Delete;
+using RateMovie.Application.UseCases.Users.PatchVip;
 using RateMovie.Application.UseCases.Users.Update;
 
 namespace RateMovie.Application
@@ -22,6 +23,7 @@ namespace RateMovie.Application
             service.AddScoped<IAddUserUseCase, AddUserUseCase>();
             service.AddScoped<IDeleteUserUseCase, DeleteUserUseCase>();
             service.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
+            service.AddScoped<IPatchVipUserUseCase, PatchVipUserUseCase>();
 
             service.AddScoped<IAddMovieUseCase, AddMovieUseCase>();
             service.AddScoped<IGetAllMoviesUseCase, GetAllMoviesUseCase>();
