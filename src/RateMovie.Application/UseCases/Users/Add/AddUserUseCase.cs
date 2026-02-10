@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Results;
 using RateMovie.Application.Mapper;
 using RateMovie.Communication.Requests.User;
-using RateMovie.Communication.Responses;
+using RateMovie.Communication.Responses.User;
 using RateMovie.Domain.Repositories.UnitOfWork;
 using RateMovie.Domain.Repositories.Users;
 using RateMovie.Domain.Security.PasswordHasher;

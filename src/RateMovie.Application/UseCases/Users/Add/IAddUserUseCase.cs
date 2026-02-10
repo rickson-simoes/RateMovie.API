@@ -1,5 +1,5 @@
 ﻿using RateMovie.Communication.Requests.User;
-using RateMovie.Communication.Responses;
+using RateMovie.Communication.Responses.User;
 
 namespace RateMovie.Application.UseCases.Users.Add
 {

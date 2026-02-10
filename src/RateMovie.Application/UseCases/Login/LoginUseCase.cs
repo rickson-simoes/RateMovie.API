@@ -1,5 +1,5 @@
 ﻿using RateMovie.Communication.Requests.Login;
-using RateMovie.Communication.Responses;
+using RateMovie.Communication.Responses.Login;
 using RateMovie.Domain.Repositories.Users;
 using RateMovie.Domain.Security.PasswordHasher;
 using RateMovie.Domain.Security.TokenGenerator;

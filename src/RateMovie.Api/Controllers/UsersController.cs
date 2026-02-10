@@ -3,6 +3,7 @@ using RateMovie.Application.UseCases.Users.Add;
 using RateMovie.Application.UseCases.Users.Delete;
 using RateMovie.Communication.Requests.User;
 using RateMovie.Communication.Responses;
+using RateMovie.Communication.Responses.User;
 
 namespace RateMovie.Api.Controllers
 {

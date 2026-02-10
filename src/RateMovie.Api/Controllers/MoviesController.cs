@@ -7,6 +7,7 @@ using RateMovie.Application.UseCases.Movies.GetById;
 using RateMovie.Application.UseCases.Movies.Update;
 using RateMovie.Communication.Requests.Movie;
 using RateMovie.Communication.Responses;
+using RateMovie.Communication.Responses.Movie;
 
 namespace RateMovie.Api.Controllers
 {

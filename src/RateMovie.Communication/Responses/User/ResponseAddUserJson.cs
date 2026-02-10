@@ -1,4 +1,4 @@
-﻿namespace RateMovie.Communication.Responses
+﻿namespace RateMovie.Communication.Responses.User
 {
     public class ResponseAddUserJson
     {

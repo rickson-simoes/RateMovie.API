@@ -1,4 +1,4 @@
-﻿namespace RateMovie.Communication.Responses
+﻿namespace RateMovie.Communication.Responses.Movie
 {
     public class ResponseListShortMovieJson
     {

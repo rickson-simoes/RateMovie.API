@@ -1,4 +1,4 @@
-﻿using RateMovie.Communication.Responses;
+﻿using RateMovie.Communication.Responses.Movie;
 
 namespace RateMovie.Application.UseCases.Movies.GetById
 {

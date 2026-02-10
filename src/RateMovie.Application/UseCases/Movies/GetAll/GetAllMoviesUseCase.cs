@@ -1,5 +1,5 @@
 ﻿using RateMovie.Application.Mapper;
-using RateMovie.Communication.Responses;
+using RateMovie.Communication.Responses.Movie;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Services;
 

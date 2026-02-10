@@ -2,6 +2,7 @@
 using RateMovie.Application.UseCases.Login;
 using RateMovie.Communication.Requests.Login;
 using RateMovie.Communication.Responses;
+using RateMovie.Communication.Responses.Login;
 
 namespace RateMovie.Api.Controllers
 {

@@ -1,6 +1,6 @@
 ﻿using RateMovie.Application.Mapper;
 using RateMovie.Communication.Requests.Movie;
-using RateMovie.Communication.Responses;
+using RateMovie.Communication.Responses.Movie;
 using RateMovie.Domain.Entities;
 using RateMovie.Domain.Repositories.Movies;
 using RateMovie.Domain.Repositories.UnitOfWork;
