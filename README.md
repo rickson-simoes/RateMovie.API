@@ -68,7 +68,7 @@ Swagger (OpenAPI 3.0) is enabled and fully configured to support JWT authenticat
 
 
 ### 📃 Swagger Preview
-<img width="1307" height="886" alt="image" src="https://github.com/user-attachments/assets/81aef4ee-9fc3-4a5b-85d1-c1bbe1d11df0" />
+<img width="1445" height="1109" alt="image" src="https://github.com/user-attachments/assets/e476dac2-fee3-431f-9964-fd01a9db8f34" />
 
 ### 📃 Excel Preview
 <img width="970" height="501" alt="image" src="https://github.com/user-attachments/assets/afdb2b13-4686-4aae-a78c-ec5842f572c8" />
