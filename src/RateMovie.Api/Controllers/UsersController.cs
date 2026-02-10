@@ -48,7 +48,7 @@ namespace RateMovie.Api.Controllers
            return NoContent();
         }
 
-        [HttpPut("password")]
+        [HttpPatch("password")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType<ResponseErrorJson>(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateUserPassword(
