@@ -149,9 +149,9 @@ Login:
 
 ## ❌ Pending Unit Tests
 Users:
-– Delete user
-– Update user data
-– Update user as VIP
+ – Delete user
+ – Update user data
+ – Update user as VIP
 
 Movies:
  - Retrieve all movies
