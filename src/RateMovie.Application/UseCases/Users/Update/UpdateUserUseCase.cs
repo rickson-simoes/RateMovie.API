@@ -9,7 +9,7 @@ namespace RateMovie.Application.UseCases.Users.Update
 {
     internal class UpdateUserUseCase(
         IUnitOfWorkRepository _unitOfWork, 
-        IUserWriteOnlyRepository _userRepositoryDelete, 
+        IUserWriteOnlyRepository _userRepositoryWrite, 
         ILoggedUser _loggedUser,
         IPasswordHasher _passwordHasher): IUpdateUserUseCase
     {
@@ -22,7 +22,7 @@ namespace RateMovie.Application.UseCases.Users.Update
             user.Name = request.name;
             user.Password = _passwordHasher.HashPassword(request.password);
 
-            _userRepositoryDelete.Update(user);
+            _userRepositoryWrite.Update(user);
             await _unitOfWork.Commit();
         }
 
