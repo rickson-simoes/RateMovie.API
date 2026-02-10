@@ -27,7 +27,8 @@ Users can create accounts, authenticate, and perform full CRUD operations on mov
 - `DELETE /api/Users` – Delete user ✅
 - `PUT /api/Users` – Update user info ✅
 - `PATCH /api/Users` – Update user as VIP ✅
-- `Get /api/Users` – Get All Logged User Data ❌
+- `Get /api/Users` – Get All Logged User Data ✅
+- `Get /api/Users/Password` – Update User Password ❌
 
 ### Movies
 - `GET(ALL Movies) /api/Movies` ✅

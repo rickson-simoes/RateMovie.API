@@ -25,5 +25,10 @@ namespace RateMovie.Application.Mapper
                 Token = token
             };
         }
+
+        public static ResponseGetAllUserDataJson ToGetAllUserDataJson(this User req)
+        {
+            return new ResponseGetAllUserDataJson(req.Id, req.Name, req.Email, (Communication.Enum.UserRole)req.Role);
+        }
     }
 }

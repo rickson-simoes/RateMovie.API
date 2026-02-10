@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RateMovie.Application.UseCases.Users.Add;
 using RateMovie.Application.UseCases.Users.Delete;
+using RateMovie.Application.UseCases.Users.GetAllData;
 using RateMovie.Application.UseCases.Users.PatchVip;
 using RateMovie.Application.UseCases.Users.Update;
 using RateMovie.Communication.Requests.User;
@@ -52,6 +52,15 @@ namespace RateMovie.Api.Controllers
         public async Task<IActionResult> PatchVipUser([FromServices] IPatchVipUserUseCase patchVipUseCase)
         {
             var response = await patchVipUseCase.Execute();
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [ProducesResponseType<ResponseGetAllUserDataJson>(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAllData([FromServices] IGetAllUserDataUseCase getAllUserDataUseCase)
+        {
+            var response = await getAllUserDataUseCase.Execute();
 
             return Ok(response);
         }
