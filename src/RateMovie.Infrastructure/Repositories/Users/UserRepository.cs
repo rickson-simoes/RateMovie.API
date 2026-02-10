@@ -35,5 +35,10 @@ namespace RateMovie.Infrastructure.Repositories.Users
 
             return user;
         }
+
+        public void Update(User user)
+        {
+            _dbContext.Users.Update(user);
+        }
     }
 }

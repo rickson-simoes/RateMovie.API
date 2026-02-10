@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RateMovie.Application.UseCases.Users.Add;
 using RateMovie.Application.UseCases.Users.Delete;
+using RateMovie.Application.UseCases.Users.Update;
 using RateMovie.Communication.Requests.User;
 using RateMovie.Communication.Responses;
 using RateMovie.Communication.Responses.User;
@@ -30,6 +31,18 @@ namespace RateMovie.Api.Controllers
             await deleteUserUseCase.Execute();
 
             return NoContent();
+        }
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType<ResponseErrorJson>(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> UpdateUser(
+            [FromServices] IUpdateUserUseCase updateUseCase, 
+            [FromBody] RequestUpdateUserJson request)
+        {
+           await updateUseCase.Execute(request);
+
+           return NoContent();
         }
     }
 }

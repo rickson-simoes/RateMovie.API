@@ -5,5 +5,6 @@ namespace RateMovie.Domain.Repositories.Users
     public interface IUserWriteOnlyRepository
     {
         Task Add(User user);
+        void Update(User user);
     }
 }
