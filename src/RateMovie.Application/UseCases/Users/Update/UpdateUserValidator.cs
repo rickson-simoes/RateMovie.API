@@ -9,8 +9,6 @@ namespace RateMovie.Application.UseCases.Users.Update
         public UpdateUserValidator()
         {
             RuleFor(u => u.name).NotEmpty().WithMessage(ErrorMessagesResource.NAME_EMPTY);
-
-            RuleFor(u => u.password).SetValidator(new PasswordValidator<RequestUpdateUserJson>());
         }
     }
 }
