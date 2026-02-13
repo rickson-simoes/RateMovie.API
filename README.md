@@ -131,61 +131,61 @@ Testing improvements include:
   
 ## ✅ Implemented Unit Tests
 Login:
-- **Login Use Case** - User Login.
+- **Login Use Case** - User Login. ✅
 
 Users:
-- **Add User Use Case** – Creates a new user.
-- **Add User Validator** – Validates user request body params.
-- **Password Validator** – Validates user password body params.
+- **Add User Use Case** – Creates a new user. ✅
+- **Add User Validator** – Validates user request body params. ✅
+- **Password Validator** – Validates user password body params. ✅
 
 Movies:
-- **Add Movie Use Case** Create a new movie
-- **MoviesValidator** - Validates movie request body params.
+- **Add Movie Use Case** – Create a new movie. ✅
+- **Delete Movie Use Case** - Delete a movie. ✅
+- **MoviesValidator** - Validates movie request body params. ✅
 
 ## ✅ Implemented Integration Tests
 
 Users:
-- `POST /api/Users` – Creates a new user
+- `POST /api/Users` – Creates a new user ✅
 
 Login: 
-- `POST /api/Login` – Authenticate and receive a JWT token
+- `POST /api/Login` – Authenticate and receive a JWT token ✅
 
 ## ❌ Pending Unit Tests
 Users:
- - Delete user
- - Update user data
- - Update user as VIP
- - Update user Password
- - Get all user data
+ - Delete user ❌
+ - Update user data ❌
+ - Update user as VIP ❌
+ - Update user Password ❌
+ - Get all user data ❌
 
 Movies:
- - Retrieve all movies
- - Retrieve a movie by ID  
- - Update an existing movie  
- - Delete a movie
+ - Retrieve all movies ❌
+ - Retrieve a movie by ID ❌
+ - Update an existing movie ❌
 
 Reports:
- - Generate movies report in PDF  
- - Generate movies report in Excel 
+ - Generate movies report in PDF ❌
+ - Generate movies report in Excel ❌
 
 ## ❌ Missing Integration Tests
 Users:
-- `DELETE /api/Users` – Delete user 
-- `PUT /api/Users` – Update user info 
-- `PUT /api/Users/Password` – Update User Password 
-- `PATCH /api/Users` – Update user as VIP 
-- `GET /api/Users` – Get All Logged User Data 
+- `DELETE /api/Users` – Delete user ❌
+- `PUT /api/Users` – Update user info ❌
+- `PUT /api/Users/Password` – Update User Password ❌
+- `PATCH /api/Users` – Update user as VIP ❌
+- `GET /api/Users` – Get All Logged User Data ❌
 
 Movies:
-- `GET /api/Movies` – Retrieve all movies  
-- `GET /api/Movies/{id}` – Retrieve movie by ID  
-- `POST /api/Movies` – Create movie  
-- `PUT /api/Movies/{id}` – Update movie  
-- `DELETE /api/Movies/{id}` – Delete movie
+- `GET /api/Movies` – Retrieve all movies ❌
+- `GET /api/Movies/{id}` – Retrieve movie by ID ❌
+- `POST /api/Movies` – Create movie ❌
+- `PUT /api/Movies/{id}` – Update movie ❌  
+- `DELETE /api/Movies/{id}` – Delete movie ❌
 
 Reports (VIP Only):
-- `GET /api/Reports/movies-pdf` - Generates a PDF with all user critics.
-- `GET /api/Reports/movies-excel` - Generates an Excel with all user critics.
+- `GET /api/Reports/movies-pdf` - Generates a PDF with all user critics.❌
+- `GET /api/Reports/movies-excel` - Generates an Excel with all user critics.❌
 
 
 ## 🖥️ Running Locally 

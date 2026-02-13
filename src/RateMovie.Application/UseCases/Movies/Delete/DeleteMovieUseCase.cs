@@ -22,7 +22,7 @@ namespace RateMovie.Application.UseCases.Movies.Delete
 
             _movieDeleteRepository.Delete(movie);
 
-            await  _unitOfWorkRepository.Commit();
+            await _unitOfWorkRepository.Commit();
         }
     }
 }
