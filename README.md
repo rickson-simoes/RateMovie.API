@@ -139,6 +139,7 @@ Users:
 - **Password Validator** – Validates user password body params.
 
 Movies:
+- **Add Movie Use Case** Create a new movie
 - **MoviesValidator** - Validates movie request body params.
 
 ## ✅ Implemented Integration Tests
@@ -160,7 +161,6 @@ Users:
 Movies:
  - Retrieve all movies
  - Retrieve a movie by ID  
- - Create a new movie  
  - Update an existing movie  
  - Delete a movie
 
