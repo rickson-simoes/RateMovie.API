@@ -137,6 +137,7 @@ Users:
 - **Add User Use Case** – Creates a new user. ✅
 - **Add User Validator** – Validates user request body params. ✅
 - **Password Validator** – Validates user password body params. ✅
+- **Delete User Use Case** – Delete user ✅
 
 Movies:
 - **Add Movie Use Case** – Create a new movie. ✅
@@ -153,7 +154,6 @@ Login:
 
 ## ❌ Pending Unit Tests
 Users:
- - Delete user ❌
  - Update user data ❌
  - Update user as VIP ❌
  - Update user Password ❌

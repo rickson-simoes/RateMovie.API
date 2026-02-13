@@ -4,7 +4,10 @@ using RateMovie.Domain.Services;
 
 namespace RateMovie.Application.UseCases.Users.Delete
 {
-    internal class DeleteUserUseCase(IUnitOfWorkRepository _unitOfWork, IUserDeleteOnlyRepository _userRepositoryDelete, ILoggedUser _loggedUser) : IDeleteUserUseCase
+    internal class DeleteUserUseCase(
+        IUnitOfWorkRepository _unitOfWork, 
+        IUserDeleteOnlyRepository _userRepositoryDelete, 
+        ILoggedUser _loggedUser) : IDeleteUserUseCase
     {
         public async Task Execute()
         {
