@@ -138,6 +138,7 @@ Users:
 - **Add User Validator** – Validates user request body params. ✅
 - **Password Validator** – Validates user password body params. ✅
 - **Delete User Use Case** – Delete user ✅
+- **Get All User Data Use Case** – Returns all logged user data ✅
 
 Movies:
 - **Add Movie Use Case** – Create a new movie. ✅
@@ -157,7 +158,6 @@ Users:
  - Update user data ❌
  - Update user as VIP ❌
  - Update user Password ❌
- - Get all user data ❌
 
 Movies:
  - Retrieve all movies ❌
