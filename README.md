@@ -139,6 +139,7 @@ Users:
 - **Password Validator** – Validates user password body params. ✅
 - **Delete User Use Case** – Delete user ✅
 - **Get All User Data Use Case** – Returns all logged user data ✅
+- **Patch Vip User Use Case** – Updates user role to VIP ✅
 
 Movies:
 - **Add Movie Use Case** – Create a new movie. ✅
@@ -156,7 +157,6 @@ Login:
 ## ❌ Pending Unit Tests
 Users:
  - Update user data ❌
- - Update user as VIP ❌
  - Update user Password ❌
 
 Movies:
