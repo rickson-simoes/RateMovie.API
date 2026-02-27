@@ -15,7 +15,7 @@ namespace RateMovie.UnitTests.Movies.Add
     public class AddMovieUseCaseTest
     {
         [Fact]
-        public async void Success()
+        public async Task Success()
         {
             var user = UserBuilder.Build();
             var movieRequest = RequestMovieJsonBuilder.Build();
@@ -31,7 +31,7 @@ namespace RateMovie.UnitTests.Movies.Add
         }
 
         [Fact]
-        public async void Should_Fail_When_Movie_Name_Is_Null()
+        public async Task Should_Fail_When_Movie_Name_Is_Null()
         {
             var user = UserBuilder.Build();
             var movieRequest = RequestMovieJsonBuilder.Build();
@@ -47,7 +47,7 @@ namespace RateMovie.UnitTests.Movies.Add
         }
 
         [Fact]
-        public async void Should_Fail_When_Movie_Name_Is_Above_90_Characters()
+        public async Task Should_Fail_When_Movie_Name_Is_Above_90_Characters()
         {
             var user = UserBuilder.Build();
             var movieRequest = RequestMovieJsonBuilder.Build();
@@ -63,7 +63,7 @@ namespace RateMovie.UnitTests.Movies.Add
         }
 
         [Fact]
-        public async void Should_Fail_When_Movie_Comment_Is_Above_700_Characters()
+        public async Task Should_Fail_When_Movie_Comment_Is_Above_700_Characters()
         {
             var user = UserBuilder.Build();
             var movieRequest = RequestMovieJsonBuilder.Build();
@@ -81,7 +81,7 @@ namespace RateMovie.UnitTests.Movies.Add
         [Theory]
         [InlineData(0)]
         [InlineData(6)]
-        public async void Should_Fail_When_Movie_Stars_Is_Out_Of_Range(byte stars)
+        public async Task Should_Fail_When_Movie_Stars_Is_Out_Of_Range(byte stars)
         {
             var user = UserBuilder.Build();
             var movieRequest = RequestMovieJsonBuilder.Build();
@@ -97,7 +97,7 @@ namespace RateMovie.UnitTests.Movies.Add
         }
 
         [Fact]
-        public async void Should_Fail_When_Movie_Genre_Is_Invalid()
+        public async Task Should_Fail_When_Movie_Genre_Is_Invalid()
         {
             var user = UserBuilder.Build();
             var movieRequest = RequestMovieJsonBuilder.Build();

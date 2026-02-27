@@ -11,7 +11,7 @@ namespace RateMovie.UnitTests.Users.Delete
     public class DeleteUserUseCaseTest
     {
         [Fact]
-        public async void Success()
+        public async Task Success()
         {
             var user = UserBuilder.Build();
             var useCase = CreateUseCase(user);

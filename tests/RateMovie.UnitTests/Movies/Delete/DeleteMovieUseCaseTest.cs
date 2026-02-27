@@ -14,7 +14,7 @@ namespace RateMovie.UnitTests.Movies.Delete
     public class DeleteMovieUseCaseTest
     {
         [Fact]
-        public async void Success()
+        public async Task Success()
         {
             var user = UserBuilder.Build();
             var movie = MovieBuilder.Build(user);
@@ -26,7 +26,7 @@ namespace RateMovie.UnitTests.Movies.Delete
         }
 
         [Fact]
-        public async void Should_Fail_If_Movie_Is_Null()
+        public async Task Should_Fail_If_Movie_Is_Null()
         {
             var user = UserBuilder.Build();
             var useCase = CreateUseCase(user);

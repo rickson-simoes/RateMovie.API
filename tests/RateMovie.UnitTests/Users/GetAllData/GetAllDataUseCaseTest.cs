@@ -9,7 +9,7 @@ namespace RateMovie.UnitTests.Users.GetAllData
     public class GetAllDataUseCaseTest
     {
         [Fact]
-        public async void Success()
+        public async Task Success()
         {
             var user = UserBuilder.Build();
             var useCase = CreateUseCase(user);
