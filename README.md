@@ -139,6 +139,7 @@ Users:
 - **Get All User Data Use Case** – Returns all logged user data ✅
 - **Patch Vip User Use Case** – Updates user role to VIP ✅
 - **Update User Use Case** – Updates user data ✅
+- **Update User Password Use Case** – Update user Password ✅
 - **Add User Validator** – Validates user request body params. ✅
 - **Password Validator** – Validates user password body params. ✅
 
@@ -156,8 +157,6 @@ Login:
 - `POST /api/Login` – Authenticate and receive a JWT token ✅
 
 ## ❌ Pending Unit Tests
-Users:
- - Update user Password ❌
 
 Movies:
  - Retrieve all movies ❌
