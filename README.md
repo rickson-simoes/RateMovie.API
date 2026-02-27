@@ -135,11 +135,12 @@ Login:
 
 Users:
 - **Add User Use Case** – Creates a new user. ✅
-- **Add User Validator** – Validates user request body params. ✅
-- **Password Validator** – Validates user password body params. ✅
 - **Delete User Use Case** – Delete user ✅
 - **Get All User Data Use Case** – Returns all logged user data ✅
 - **Patch Vip User Use Case** – Updates user role to VIP ✅
+- **Update User Use Case** – Updates user data ✅
+- **Add User Validator** – Validates user request body params. ✅
+- **Password Validator** – Validates user password body params. ✅
 
 Movies:
 - **Add Movie Use Case** – Create a new movie. ✅
@@ -156,7 +157,6 @@ Login:
 
 ## ❌ Pending Unit Tests
 Users:
- - Update user data ❌
  - Update user Password ❌
 
 Movies:
