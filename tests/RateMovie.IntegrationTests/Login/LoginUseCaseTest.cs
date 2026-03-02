@@ -8,7 +8,7 @@ using System.Text.Json;
 
 namespace RateMovie.IntegrationTests.Login
 {
-    public class LoginUseCaseTest : SqliteIntegrationTestBase
+    public class LoginUseCaseTest : SqliteIntegrationBaseClass
     {
         private const string LOGIN_URI = "api/login";
 

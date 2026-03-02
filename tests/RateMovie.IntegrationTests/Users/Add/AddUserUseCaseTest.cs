@@ -10,7 +10,7 @@ using System.Text.Json;
 
 namespace RateMovie.IntegrationTests.Users.Add
 {
-    public class AddUserUseCaseTest(CustomWebApplicationFactorySQLite webApplicationFactory) : SqliteIntegrationTestBase(webApplicationFactory)
+    public class AddUserUseCaseTest(CustomWebApplicationFactorySQLite webApplicationFactory) : SqliteIntegrationBaseClass(webApplicationFactory)
     {        
         private const string USER_URI = "api/users";
 

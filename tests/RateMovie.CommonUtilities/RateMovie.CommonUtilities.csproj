@@ -16,4 +16,7 @@
     <ProjectReference Include="..\..\src\RateMovie.Domain\RateMovie.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+	<InternalsVisibleTo Include="RateMovie.IntegrationTests"/>
+  </ItemGroup>
 </Project>
