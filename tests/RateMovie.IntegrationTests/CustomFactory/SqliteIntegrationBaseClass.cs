@@ -1,14 +1,10 @@
-﻿using DocumentFormat.OpenXml.Office2010.Excel;
-using DocumentFormat.OpenXml.Spreadsheet;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Linq;
 using RateMovie.CommonUtilities.Entities;
 using RateMovie.CommonUtilities.TestModels;
-using RateMovie.Domain.Entities;
+using RateMovie.Domain.Security.TokenGenerator;
 using RateMovie.Infrastructure.DataAccess;
 using RateMovie.Infrastructure.Security.PasswordHasher;
-using RateMovie.Infrastructure.Security.TokenGenerator;
 using System.Net.Http.Json;
 
 namespace RateMovie.IntegrationTests.CustomFactory
@@ -17,9 +13,7 @@ namespace RateMovie.IntegrationTests.CustomFactory
     {
         private readonly HttpClient _httpClient;
         private readonly CustomWebApplicationFactorySQLite _webApplicationFactory;
-
-        private const string TOKEN_SIGNINGKEY_TEST = "integration-token-for-testing-purposes";
-        private const int EXPIRATION_TIME_TEST = 10000;
+        private readonly ITokenGenerator _tokenGenerator;
 
         public SqliteIntegrationBaseClass(CustomWebApplicationFactorySQLite webApplicationFactory)
         {
@@ -28,6 +22,8 @@ namespace RateMovie.IntegrationTests.CustomFactory
 
             using var scope = webApplicationFactory.Services.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<RateMovieDBContext>();
+            _tokenGenerator = scope.ServiceProvider.GetRequiredService<ITokenGenerator>();
+
             db.Database.EnsureCreated();
         }
 
@@ -49,7 +45,7 @@ namespace RateMovie.IntegrationTests.CustomFactory
                 await context.SaveChangesAsync();
             });
 
-            var token = new TokenGeneratorJWT(TOKEN_SIGNINGKEY_TEST, EXPIRATION_TIME_TEST).GenerateToken(user);
+            var token = _tokenGenerator.GenerateToken(user);
 
             var userGenerated = new IntegrationTestUser(user.Id, user.Name, user.Email, user.Password, user.Role, token);
 
