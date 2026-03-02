@@ -156,6 +156,9 @@ Users:
 Login: 
 - `POST /api/Login` – Authenticate and receive a JWT token ✅
 
+Movies:
+- `POST /api/Movies` – Create a movie with authenticated user ✅
+
 ## ❌ Pending Unit Tests
 
 Movies:
@@ -178,7 +181,6 @@ Users:
 Movies:
 - `GET /api/Movies` – Retrieve all movies ❌
 - `GET /api/Movies/{id}` – Retrieve movie by ID ❌
-- `POST /api/Movies` – Create movie ❌
 - `PUT /api/Movies/{id}` – Update movie ❌  
 - `DELETE /api/Movies/{id}` – Delete movie ❌
 
