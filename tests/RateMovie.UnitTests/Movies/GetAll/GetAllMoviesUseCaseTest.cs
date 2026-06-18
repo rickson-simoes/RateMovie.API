@@ -18,7 +18,7 @@ namespace RateMovie.UnitTests.Movies.GetAll
             var execute = await useCase.Execute();
 
             execute.Movies.ShouldNotBeEmpty();
-            execute.Movies.ForEach(movie => movie.Stars.ShouldBeInRange((byte)1, (byte)5));
+            execute.Movies.ForEach(movie => movie.Stars.ShouldBeInRange<byte>(1, 5));
             execute.Movies.ForEach(movie => movie.Name.ShouldNotBeEmpty());
             execute.Movies.ForEach(movie => Enum.IsDefined(typeof(Communication.Enum.MovieGenre), movie.Genre));
         }
