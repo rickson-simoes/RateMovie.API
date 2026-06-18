@@ -146,6 +146,7 @@ Users:
 Movies:
 - **Add Movie Use Case** – Create a new movie. ✅
 - **Delete Movie Use Case** - Delete a movie. ✅
+- **Get All Movies** Retrieve all movies. ✅
 - **MoviesValidator** - Validates movie request body params. ✅
 
 ## ✅ Implemented Integration Tests
@@ -162,7 +163,6 @@ Movies:
 ## ❌ Pending Unit Tests
 
 Movies:
- - Retrieve all movies ❌
  - Retrieve a movie by ID ❌
  - Update an existing movie ❌
 
