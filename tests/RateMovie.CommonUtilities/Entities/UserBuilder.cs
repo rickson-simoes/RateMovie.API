@@ -9,10 +9,12 @@ namespace RateMovie.CommonUtilities.Entities
         public static User Build(UserRole? role = UserRole.Member)
         {
             return new Faker<User>()
+                .RuleFor(u => u.Id, faker => faker.IndexFaker)
                 .RuleFor(u => u.Name, faker => faker.Name.FirstName())
                 .RuleFor(u => u.Email, (faker, u) => faker.Internet.Email(u.Name))
                 .RuleFor(u => u.Password, faker => faker.Internet.Password(8, prefix: "1@Bb"))
-                .RuleFor(u => u.Role, role);
+                .RuleFor(u => u.Role, role)
+                .Generate();
         }
     }
 }

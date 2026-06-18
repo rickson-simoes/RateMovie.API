@@ -4,11 +4,11 @@ using RateMovie.Domain.Repositories.Movies;
 
 namespace RateMovie.CommonUtilities.Repositories.Movies
 {
-    public class MovieUpdateOnlyRepository
+    public class MovieUpdateOnlyRepositoryBuilder
     {
         private readonly Mock<IMovieUpdateOnlyRepository> _moq;
 
-        public MovieUpdateOnlyRepository()
+        public MovieUpdateOnlyRepositoryBuilder()
         {
             _moq = new Mock<IMovieUpdateOnlyRepository>();
         }

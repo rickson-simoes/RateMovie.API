@@ -3,7 +3,7 @@ using RateMovie.Domain.Repositories.Movies;
 
 namespace RateMovie.CommonUtilities.Repositories.Movies
 {
-    public class MovieDeleteOnlyRepository
+    public class MovieDeleteOnlyRepositoryBuilder
     {
         public static IMovieDeleteOnlyRepository Build()
         {

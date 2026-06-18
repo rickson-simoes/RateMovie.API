@@ -42,8 +42,8 @@ namespace RateMovie.UnitTests.Movies.Delete
 
         private DeleteMovieUseCase CreateUseCase(User user, Movie? movie = null)
         {
-            var movieDeleteOnlyRepository = MovieDeleteOnlyRepository.Build();
-            var movieUpdateOnlyRepository = new MovieUpdateOnlyRepository();
+            var movieDeleteOnlyRepository = MovieDeleteOnlyRepositoryBuilder.Build();
+            var movieUpdateOnlyRepository = new MovieUpdateOnlyRepositoryBuilder();
             var unitOfWork = UnitOfWorkBuilder.Build();
             var loggedUser = LoggedUserBuilder.Build(user);
 
